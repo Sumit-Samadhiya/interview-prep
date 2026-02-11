@@ -1,321 +1,99 @@
-# 1️⃣ What is JavaScript?
+# 6️⃣ What is Hoisting?
 
 ## 🟢 Hinglish Explanation
 
-JavaScript ek **high-level programming language** hai jo websites ko **interactive aur dynamic** banane ke liye use hoti hai.
+Hoisting ka matlab hai:
+Variable aur function declaration ko memory me upar move kar dena before execution.
 
 Example:
-- Button click handle karna  
-- Form validation karna  
-- Page reload kiye bina data fetch karna  
-- Animations aur dynamic content show karna  
-
-JavaScript browser ke andar run hoti hai.  
-Backend me bhi use hoti hai using **Node.js**.
-
-Simple samjho:
-- HTML → Structure deta hai  
-- CSS → Design deta hai  
-- JavaScript → Logic aur behavior deta hai  
-
----
-
-## 🌍 Real Life Example
-
-Jab aap Facebook pe "Like" button click karte ho:
-- Page reload nahi hota
-- Like count instantly badh jata hai
-- Ye sab JavaScript ke through hota hai
-
-Amazon pe product search karte waqt suggestions real-time dikhti hain - ye bhi JavaScript hai.
-
----
-
-## 🔄 Workflow
-
-1. User webpage open karta hai
-2. Browser HTML parse karta hai
-3. CSS se styling apply hoti hai
-4. JavaScript load hoti hai aur execute hoti hai
-5. User interaction pe JavaScript events trigger hote hain
-6. DOM update hota hai without page reload
-
----
-
-## 🔵 English Explanation
-
-JavaScript is a **high-level programming language** used to make websites **interactive and dynamic**.
-
-Examples:
-- Handling button clicks  
-- Validating forms  
-- Fetching data without reloading the page  
-- Displaying dynamic content and animations  
-
-JavaScript runs inside the browser.  
-It can also be used on the backend using **Node.js**.
-
-In simple terms:
-- HTML → Provides structure  
-- CSS → Provides styling  
-- JavaScript → Provides logic and behavior  
-
----
-
-## 🎯 Interview Answer
-
-JavaScript is a high-level, interpreted programming language used to create interactive and dynamic web applications. It runs in the browser and can also be used on the backend using Node.js.
-
----
-
-# 2️⃣ Is JavaScript synchronous or asynchronous?
-
-## 🟢 Hinglish Explanation
-
-JavaScript by default **synchronous** hoti hai.
-
-Matlab:
-Code line-by-line execute hota hai.  
-Ek kaam khatam hone ke baad hi next kaam start hota hai.
-
-Lekin JavaScript **asynchronous behavior support karti hai**:
-- setTimeout()
-- Promises
-- async/await
-- fetch()
-
-Iska matlab hai:
-Heavy task background me chalega aur baaki code rukega nahi.
-
----
-
-## 🌍 Real Life Example
-
-Restaurant me order karna:
-- **Synchronous**: Ek customer ka order complete hone tak dusra customer wait kare (bahut slow!)
-- **Asynchronous**: Sabke orders ek saath kitchen me jate hain, jiska banta hai wo serve ho jata hai
-
-JavaScript bhi aise hi kaam karta hai - API calls background me process hoti hain jab tak aap page pe scroll kar sakte ho.
-
----
-
-## 🔄 Workflow
-
-**Synchronous:**
-```
-Task 1 → Complete → Task 2 → Complete → Task 3
-```
-
-**Asynchronous:**
-```
-Task 1 (start) → Task 2 (start) → Task 3 (start)
-         ↓              ↓              ↓
-    (background)   (background)   (background)
-         ↓              ↓              ↓
-     Complete       Complete       Complete
-```
-
----
-
-## 🔵 English Explanation
-
-JavaScript is **synchronous by default**, meaning code executes line by line.
-
-However, it supports **asynchronous behavior** using:
-- setTimeout()
-- Promises
-- async/await
-- fetch()
-
-This allows long-running tasks to execute in the background without blocking the main thread.
-
----
-
-## 🎯 Interview Answer
-
-JavaScript is synchronous by default, but it supports asynchronous operations using callbacks, promises, and async/await to handle non-blocking tasks.
-
----
-
-# 3️⃣ Is JavaScript single-threaded?
-
-## 🟢 Hinglish Explanation
-
-Haan, JavaScript **single-threaded** hai.
-
-Iska matlab:
-Ek time pe sirf ek hi task execute hota hai.
-
-JavaScript ek **single call stack** use karti hai.
-
-Lekin Event Loop ke through asynchronous tasks handle kiye jate hain.
-
----
-
-## 🌍 Real Life Example
-
-Ek cashier jo ek time pe sirf ek customer ko serve kar sakta hai - ye single-threaded hai.
-
-Par wo token number de sakta hai aur jab product ready ho, customer ko call kar sakta hai - ye asynchronous behavior hai.
-
-JavaScript bhi ek "thread" hai jo tasks ko organize karta hai efficiently.
-
----
-
-## 🔄 Workflow
-
-```
-Single Thread (Call Stack)
-        ↓
-    Executing Task 1
-        ↓
-    Task 1 Complete
-        ↓
-    Executing Task 2
-        ↓
-    [Async Task 2 → Web API]
-        ↓
-    Executing Task 3
-        ↓
-    [Async Task Complete → Queue → Execute]
-```
-
----
-
-## 🔵 English Explanation
-
-Yes, JavaScript is **single-threaded**, meaning it executes one task at a time.
-
-It uses a single call stack.
-
-Asynchronous tasks are handled using the **Event Loop**.
-
----
-
-## 🎯 Interview Answer
-
-Yes, JavaScript is single-threaded. It uses a single call stack and handles asynchronous operations using the event loop.
-
----
-
-# 4️⃣ What are the data types in JavaScript?
-
-## 🟢 Hinglish Explanation
-
-JavaScript me 2 types ke data types hote hain:
-
-### 🔹 Primitive Data Types
-- **String** - Text data → "Hello"
-- **Number** - Numeric values → 42, 3.14
-- **Boolean** - True/False → true, false
-- **Undefined** - Value assign nahi hui → let x;
-- **Null** - Intentionally empty → let y = null;
-- **BigInt** - Very large numbers → 9007199254740991n
-- **Symbol** - Unique identifiers → Symbol('id')
-
-### 🔹 Non-Primitive (Reference Type)
-- **Object** - Key-value pairs → {name: "Sumit"}
-- **Array** - Ordered list → [1, 2, 3]
-- **Function** - Reusable code block
-
----
-
-## 🌍 Real Life Example
-
-**Primitive Types:**
-- String: Kisi ka naam → "Sumit Samadhiya"
-- Number: Age → 23
-- Boolean: Is Adult? → true
-
-**Reference Types:**
-- Object: Student ki puri information → {name: "Sumit", age: 23, city: "Gwalior"}
-- Array: Marks list → [85, 90, 78]
-- Function: Percentage calculate karna → function calcPercentage() {...}
-
----
-
-## 🔄 Workflow
-
-**Primitive:**
-```
-Variable → Value directly stored in Stack Memory
-let age = 23
-```
-
-**Reference:**
-```
-Variable → Reference stored in Stack → Actual Object in Heap Memory
-let person = {name: "Sumit"}
-```
-
----
-
-## 🔵 English Explanation
-
-JavaScript has two types of data types:
-
-### 🔹 Primitive Data Types
-- String
-- Number
-- Boolean
-- Undefined
-- Null
-- BigInt
-- Symbol
-
-### 🔹 Non-Primitive (Reference Type)
-- Object
-- Array
-- Function
-
----
-
-## 🎯 Interview Answer
-
-JavaScript has two categories of data types: primitive types like string, number, boolean, null, undefined, symbol, and BigInt, and non-primitive types like objects and arrays.
-
----
-
-# 5️⃣ Difference between var, let, and const
-
-## 🟢 Hinglish Explanation
-
-### 🔹 var
-- Function scoped
-- Hoisted hota hai
-- Re-declare aur re-assign dono kar sakte hain
-
-### 🔹 let
-- Block scoped
-- Hoisted hota hai but TDZ me rehta hai
-- Re-assign kar sakte hain, re-declare nahi
-
-### 🔹 const
-- Block scoped
-- Value change nahi kar sakte
-- Re-declare nahi kar sakte
-
----
-
-## 🌍 Real Life Example
-
-**var** - Purana zamana, poore ghar me koi bhi use kar sakta hai
 ```javascript
-var oldPhone = "Nokia";
-var oldPhone = "Samsung"; // ✅ Allowed
+console.log(x); // undefined (not error!)
+var x = 5;
 ```
 
-**let** - Modern, sirf apne kamre me use kar sakte ho
+var hoist hota hai but undefined assign hota hai.
+
+---
+
+## 🌍 Real Life Example
+
+Class me attendance:
+- Teacher pehle sabka naam list me likh leti hai (hoisting)
+- Baad me check karti hai kon present hai (execution)
+
+JavaScript bhi pehle sab variables/functions ko register karta hai memory me, baad me values assign karta hai.
+
+---
+
+## 🔄 Workflow
+
+**Code likha:**
 ```javascript
-let myPhone = "iPhone";
-myPhone = "Samsung"; // ✅ Allowed
-let myPhone = "OnePlus"; // ❌ Error
+console.log(name);
+var name = "Sumit";
 ```
 
-**const** - Permanent, jaise Aadhaar card number change nahi hota
+**JavaScript internally karta hai:**
 ```javascript
-const aadhaar = "1234-5678-9012";
-audhaar = "new number"; // ❌ Error
+var name; // hoisted (undefined)
+console.log(name); // undefined
+name = "Sumit"; // assignment
+```
+
+**Function hoisting:**
+```javascript
+greet(); // Works!
+
+function greet() {
+  console.log("Hello");
+}
+```
+
+---
+
+## 🔵 English Explanation
+
+Hoisting is JavaScript's behavior of moving variable and function declarations to the top of their scope before execution.
+
+---
+
+## 🎯 Interview Answer
+
+Hoisting is JavaScript's default behavior of moving declarations to the top of the scope before code execution.
+
+---
+
+# 7️⃣ What is Scope?
+
+## 🟢 Hinglish Explanation
+
+Scope decide karta hai ki variable kaha accessible hoga.
+
+Types:
+- **Global Scope** - Puri file me accessible
+- **Function Scope** - Sirf function ke andar
+- **Block Scope** - Sirf {} ke andar (let/const ke saath)
+
+---
+
+## 🌍 Real Life Example
+
+**Global Scope** - TV remote jo ghar me kahi bhi use ho sakta hai
+
+**Function Scope** - Bedroom ki chaabi jo sirf bedroom ke andar kaam karegi
+
+**Block Scope** - Locker ki chaabi jo sirf us specific locker ke liye hai
+
+```javascript
+let tvRemote = "Living Room"; // Global - sab use kar sakte
+
+function bedroom() {
+  let bedroomKey = "Private"; // Function scope
+  
+  if (true) {
+    let lockerKey = "Secret"; // Block scope
+  }
+}
 ```
 
 ---
@@ -323,38 +101,656 @@ audhaar = "new number"; // ❌ Error
 ## 🔄 Workflow
 
 ```
-var → Function Scope → Hoisted (undefined) → Re-declarable
-
-let → Block Scope → Hoisted (TDZ) → Not Re-declarable
-
-const → Block Scope → Hoisted (TDZ) → Not Re-declarable, Not Re-assignable
+Global Scope
+    ├── Variable A (accessible everywhere)
+    │
+    ├── Function Scope
+    │    ├── Variable B (accessible only in function)
+    │    │
+    │    └── Block Scope { }
+    │         └── Variable C (accessible only in block)
+    │
+    └── Another Function Scope
+         └── Variable B (different B, not accessible outside)
 ```
 
 ---
 
 ## 🔵 English Explanation
 
-### 🔹 var
-- Function scoped
-- Hoisted
-- Can be re-declared and re-assigned
+Scope defines where a variable can be accessed in a program.
 
-### 🔹 let
-- Block scoped
-- Hoisted but in temporal dead zone
-- Can be re-assigned but not re-declared
-
-### 🔹 const
-- Block scoped
-- Cannot be re-assigned
-- Cannot be re-declared
+Types:
+- Global Scope
+- Function Scope
+- Block Scope
 
 ---
 
 ## 🎯 Interview Answer
 
-The main difference is that var is function-scoped, while let and const are block-scoped. Let allows reassignment but const does not.
+Scope determines the accessibility of variables in JavaScript. It can be global, function, or block scope.
 
 ---
 
-# 5️⃣ Additional Questions will be added soon...
+# 8️⃣ Global Scope vs Local Scope
+
+## 🟢 Hinglish Explanation
+
+### 🔹 Global Scope
+Sab jagah accessible hota hai.
+
+```javascript
+let globalVar = "I am global";
+
+function test() {
+  console.log(globalVar); // ✅ Accessible
+}
+```
+
+### 🔹 Local Scope
+Sirf function ya block ke andar accessible hota hai.
+
+```javascript
+function test() {
+  let localVar = "I am local";
+}
+console.log(localVar); // ❌ Error
+```
+
+---
+
+## 🌍 Real Life Example
+
+**Global Scope** - WhatsApp status jo sabko dikhta hai (public)
+
+**Local Scope** - Personal diary jo sirf aapko dikhti hai (private)
+
+---
+
+## 🔄 Workflow
+
+```
+Global Scope
+    let username = "Sumit"
+    │
+    ├── Function A
+    │    │ ✅ Can access username
+    │    └── let password = "secret123"
+    │         ❌ Not accessible outside
+    │
+    └── Function B
+         ✅ Can access username
+         ❌ Cannot access password
+```
+
+---
+
+## 🔵 English Explanation
+
+### 🔹 Global Scope
+Accessible throughout the program.
+
+### 🔹 Local Scope
+Accessible only inside a function or block.
+
+---
+
+## 🎯 Interview Answer
+
+Global scope variables are accessible everywhere, while local scope variables are accessible only within their function or block.
+
+---
+
+# 9️⃣ What is undefined?
+
+## 🟢 Hinglish Explanation
+
+Undefined ka matlab:
+Variable declare hua hai lekin value assign nahi hui.
+
+```javascript
+let x;
+console.log(x); // undefined
+```
+
+JavaScript automatically undefined assign karta hai.
+
+---
+
+## 🌍 Real Life Example
+
+Form me aapne naam ka field chhod diya:
+- Field exist karta hai (declared)
+- Par value nahi bhari (undefined)
+
+```javascript
+let firstName; // Field exists
+console.log(firstName); // undefined - no value filled
+```
+
+---
+
+## 🔄 Workflow
+
+```
+Variable Declaration → Memory Allocated → Default Value (undefined) → Actual Value Assignment
+```
+
+Example:
+```javascript
+let age; // Declaration → undefined
+console.log(age); // undefined
+age = 23; // Assignment
+console.log(age); // 23
+```
+
+---
+
+## 🔵 English Explanation
+
+Undefined means a variable has been declared but not assigned a value.
+
+---
+
+## 🎯 Interview Answer
+
+Undefined is a data type that represents a variable declared but not yet assigned a value.
+
+---
+
+# 🔟 What is null?
+
+## 🟢 Hinglish Explanation
+
+Null ka matlab:
+Intentionally empty value.
+
+Developer khud set karta hai.
+
+```javascript
+let currentUser = null; // Intentionally no user
+```
+
+---
+
+## 🌍 Real Life Example
+
+**null** - Parking slot jo intentionally khali chhoda gaya hai (reserved but empty)
+
+**undefined** - Parking slot jiska number hi assign nahi hua
+
+```javascript
+let reservedSlot = null; // Intentionally empty
+let unassignedSlot; // undefined - not yet assigned
+```
+
+---
+
+## 🔄 Workflow
+
+```
+Developer Decision → Intentionally Set Empty → null
+
+VS
+
+JavaScript Default → No Value Assigned → undefined
+```
+
+---
+
+## 🔵 English Explanation
+
+Null represents an intentional absence of value.
+
+It is assigned manually by the developer.
+
+---
+
+## 🎯 Interview Answer
+
+Null is a special value that represents the intentional absence of any object value.
+
+---
+
+# 1️⃣1️⃣ What are Promises?
+
+## 🟢 Hinglish Explanation
+
+Promise ek aisa object hai jo kisi future mein kisi asynchronous operation ke complete hone par result return karega (fulfill ya reject).
+
+Example:
+```javascript
+let myPromise = new Promise((resolve, reject) => {
+  setTimeout(() => resolve("Done!"), 1000);
+});
+```
+
+---
+
+## 🌍 Real Life Example
+
+**Promise** - Jaise aap ek restaurant se food order karte hain:
+- Aapne order place kiya (waiting for the fulfillment)
+- Jaise hi food ready hota hai, restaurant call karta hai (resolve)
+- Agar food nahi aata hai to restaurant call karega ki order nahi hua (reject)
+
+---
+
+## 🔄 Workflow
+
+1. Promise create kiya (pending state)
+2. Asynchronous operation chalu hua
+3. Operation complete hua to resolve ya reject hua
+
+---
+
+## 🔵 English Explanation
+
+A Promise is an object representing the eventual completion or failure of an asynchronous operation.
+
+---
+
+## 🎯 Interview Answer
+
+A Promise is an object that may be in one of three states: pending, fulfilled, or rejected.
+
+---
+
+# 1️⃣2️⃣ What is Async/Await?
+
+## 🟢 Hinglish Explanation
+
+Async/await ek syntax sugar hai jo promises ko handle karne ka aasan tareeqa hai.
+
+```javascript
+async function fetchData() {
+  let response = await myPromise;
+  console.log(response);
+}
+```
+
+---
+
+## 🌍 Real Life Example
+
+**Async/await** - Jaise aap ek movie dekh rahe hain:
+- Movie play ho rahi hai (asynchronous)
+- Jab tak movie khatam hone ka wait karte hain, progress dekhte hain (await)
+
+---
+
+## 🔄 Workflow
+
+1. Function ko `async` mark karte hain.
+2. `await` ke sath promise ko wait karte hain.
+3. Output jab ready ho tab result handle karte hain.
+
+---
+
+## 🔵 English Explanation
+
+Async/await is a syntax that makes it easier to work with promises by allowing us to write asynchronous code in a synchronous fashion.
+
+---
+
+## 🎯 Interview Answer
+
+Async/await is a modern way to write asynchronous code in JavaScript that makes it more readable and easier to work with.
+
+---
+
+# 1️⃣3️⃣ What are Closures?
+
+## 🟢 Hinglish Explanation
+
+Closure ek function hai jo apni outer function ki variables ko yaad rakhta hai, jab woh outer function call hota hai.
+
+Example:
+```javascript
+function outer() {
+  let count = 0;
+  return function inner() {
+    count++;
+    return count;
+  };
+}
+
+let counter = outer();
+console.log(counter()); // 1
+console.log(counter()); // 2
+```
+
+---
+
+## 🌍 Real Life Example
+
+**Closures** - Jaise ek secret diary:
+- Diary jiski key aapke paas hai (inner)
+- Aap diary jitni baar open karte hain, woh updates yaad rakhta hai (access outer variables)
+
+---
+
+## 🔄 Workflow
+
+1. Outer function call hota hai aur variable create hota hai.
+2. Inner function return hota hai, jo outer variable ko retain karta hai.
+
+---
+
+## 🔵 English Explanation
+
+A closure is a function that has access to its own scope, the outer function’s scope, and the global scope.
+
+---
+
+## 🎯 Interview Answer
+
+A closure allows a function to access its lexical scope, even when the function is executing outside that lexical scope.
+
+---
+
+# 1️⃣4️⃣ What is the Event Loop?
+
+## 🟢 Hinglish Explanation
+
+Event Loop JavaScript ka mechanism hai jo asynchronous code ko handle karta hai, event queue ko process karta hai.
+
+Example:
+```javascript
+console.log("Start");
+setTimeout(() => {
+  console.log("Inside Timeout");
+}, 0);
+console.log("End");
+```
+
+---
+
+## 🌍 Real Life Example
+
+**Event Loop** - Jaise ek restaurant me wait staff:
+- Wait staff orders collect karta hai (event queue)
+- Order karta hai jab sab ka order complete ho jata hai (event loop checks queue)
+
+---
+
+## 🔄 Workflow
+
+1. Call stack me synchronous code execute hota hai.
+2. Asynchronous tasks ko put karte hain Web API me.
+3. Jab stack khali hota hai, event loop ko check karta hai event queue ko.
+
+---
+
+## 🔵 English Explanation
+
+The Event Loop is a mechanism that allows JavaScript to perform non-blocking operations by putting the asynchronous tasks in an event queue and executing them when the call stack is empty.
+
+---
+
+## 🎯 Interview Answer
+
+The Event Loop allows JavaScript to execute asynchronous code, ensuring that code execution is efficient and non-blocking.
+
+---
+
+# 1️⃣5️⃣ What are Higher-Order Functions?
+
+## 🟢 Hinglish Explanation
+
+Higher-Order Functions aise functions hain jo dusre functions ko input le sakte hain ya return kar sakte hain.
+
+Example:
+```javascript
+function add(a, b) {
+  return a + b;
+}
+
+function calculator(func, a, b) {
+  return func(a, b);
+}
+
+console.log(calculator(add, 5, 3)); // 8
+```
+
+---
+
+## 🌍 Real Life Example
+
+**Higher-Order Functions** - Jaise ek recipe book:
+- Recipe book me ingredients aur instructions hain (functions)
+- Aap specific recipe choose kar sakte hain, jo aapko results dega (higher-order functions call karega)
+
+---
+
+## 🔄 Workflow
+
+1. Higher-order function ko call karte hain.
+2. Input ko process karte hain (function ya result).
+
+---
+
+## 🔵 English Explanation
+
+A higher-order function is a function that takes other functions as arguments or returns a function as a result.
+
+---
+
+## 🎯 Interview Answer
+
+Higher-order functions allow for more abstract code and are a fundamental part of functional programming in JavaScript.
+
+---
+
+# 1️⃣6️⃣ What is Object-Oriented Programming (OOP)?
+
+## 🟢 Hinglish Explanation
+
+Object-Oriented Programming programming ka ek method hai jo objects use karta hai data aur behavior ko encapsulate karne ke liye.
+
+Example:
+```javascript
+class Car {
+  constructor(brand, model) {
+    this.brand = brand;
+    this.model = model;
+  }
+
+  display() {
+    return `${this.brand} ${this.model}`;
+  }
+}
+
+let myCar = new Car("Toyota", "Camry");
+console.log(myCar.display());
+```
+
+---
+
+## 🌍 Real Life Example
+
+**OOP** - Jaise ek car company:
+- Car ek object hai jo features (attributes) aur behaviors (methods) rakhta hai.
+- Har car ka apna brand, model aur functions hote hain (like driving, stopping).
+
+---
+
+## 🔄 Workflow
+
+1. Class define hoti hai.
+2. Object create hota hai class se.
+3. Object methods aur properties ko access kar sakta hai.
+
+---
+
+## 🔵 English Explanation
+
+Object-Oriented Programming (OOP) is a programming paradigm based on the concept of “objects”, which can contain data and code: data in the form of fields and code, in the form of procedures.
+
+---
+
+## 🎯 Interview Answer
+
+OOP is a programming style that uses objects to model real-world entities, encapsulating data and behaviors in a structured manner.
+
+---
+
+# 1️⃣7️⃣ What are the Principles of OOP?
+
+## 🟢 Hinglish Explanation
+
+OOP ki chaar primary principles hain:
+- **Encapsulation** - Data protection.
+- **Abstraction** - Complexity chhupana.
+- **Inheritance** - Properties ka reuse.
+- **Polymorphism** - Methods ka different behavior.
+
+---
+
+## 🌍 Real Life Example
+
+- **Encapsulation** - Aapka mobile lock screen: sirf aap hi access kar sakte hain.
+- **Abstraction** - Aapka car ka dashboard: sirf necessary information dikhata hai.
+- **Inheritance** - Ek car jo bike se shared features le sakti hai.
+- **Polymorphism** - Different geometric shapes ka area calculate karne ka method jo shape ke hisab se badal sakta hai.
+
+---
+
+## 🔄 Workflow
+
+1. Class define hoti hai.
+2. Data aur methods encapsulate karte hain.
+3. Inherited classes parent class se methods aur properties le sakte hain.
+4. Method override karna, polymorphism ka istemal hai.
+
+---
+
+## 🔵 English Explanation
+
+The main principles of Object-Oriented Programming include encapsulation, abstraction, inheritance, and polymorphism, each of which contributes to better organization and modularity of code.
+
+---
+
+## 🎯 Interview Answer
+
+The primary principles of OOP are encapsulation, abstraction, inheritance, and polymorphism, which help in organizing and structuring code efficiently.
+
+---
+
+# 1️⃣8️⃣ What is Functional Programming?
+
+## 🟢 Hinglish Explanation
+
+Functional Programming ek programming paradigm hai jo functions ko first-class citizens ke roop me treat karta hai aur state changes aur mutable data ko minimize karta hai.
+
+Example:
+```javascript
+const square = (x) => x * x;
+const numbers = [1, 2, 3];
+const squares = numbers.map(square);
+console.log(squares); // [1, 4, 9]
+```
+
+---
+
+## 🌍 Real Life Example
+
+**Functional Programming** - Jaise ek factory:
+- Factory raw materials ko input karta hai (functions).
+- Output me finished products milte hain (resulting data), bina altering workings (immutable).
+
+---
+
+## 🔄 Workflow
+
+1. Functions ko define karte hain bina side effects ke.
+2. Data transform karte hain aur generate karte hain naye data.
+
+---
+
+## 🔵 English Explanation
+
+Functional Programming is a programming paradigm created by using functions to construct the program logic and avoid state changes and mutable data.
+
+---
+
+## 🎯 Interview Answer
+
+Functional programming emphasizes the use of pure functions and discourages changing-state and mutable data, focusing on the execution of functions.
+
+---
+
+# 1️⃣9️⃣ What is Data Structures?
+
+## 🟢 Hinglish Explanation
+
+Data Structures aise tariko hain jo data ko organize, store aur manage karte hain efficiently.
+
+Example:
+- **Array** - Collection of elements.
+- **LinkedList** - Collection of nodes.
+
+---
+
+## 🌍 Real Life Example
+
+**Data Structures** - Jaise ek bookshelf:
+- Books ko organize karna (array).
+- Book ko link karna ek dusre se (linked list).
+
+---
+
+## 🔄 Workflow
+
+1. Data ko collection me store karte hain.
+2. Efficiently access aur manage karte hain data.
+
+---
+
+## 🔵 English Explanation
+
+Data structures are specialized formats for organizing and storing data on a computer.
+
+---
+
+## 🎯 Interview Answer
+
+Data structures allow developers to manage and organize data efficiently, enabling optimal access and manipulation.
+
+---
+
+# 2️⃣0️⃣ What is Algorithms?
+
+## 🟢 Hinglish Explanation
+
+Algorithm ek step-by-step procedure hai jo ko kisi problem ko solve karte hain. 
+
+Example:
+Sorting algorithm jaise Quick sort, Merge sort hota hai jo data ko sort karne ke liye use hote hain.
+
+---
+
+## 🌍 Real Life Example
+
+**Algorithms** - Jaise ek cooking recipe:
+- Recipe steps ko follow karna (solution).
+
+---
+
+## 🔄 Workflow
+
+1. Problem ko define karte hain.
+2. Steps ya processes ko outline karte hain jo solution dene ke liye use honge.
+
+---
+
+## 🔵 English Explanation
+
+An algorithm is a process or set of rules that must be followed in calculations or other problem-solving operations, especially by a computer.
+
+---
+
+## 🎯 Interview Answer
+
+An algorithm is a set of instructions designed to perform a specific task or solve a certain problem, laying out the logical steps required for execution.
