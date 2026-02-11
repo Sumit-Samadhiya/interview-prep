@@ -1,756 +1,139 @@
-# 6️⃣ What is Hoisting?
-
-## 🟢 Hinglish Explanation
-
-Hoisting ka matlab hai:
-Variable aur function declaration ko memory me upar move kar dena before execution.
-
-Example:
-```javascript
-console.log(x); // undefined (not error!)
-var x = 5;
-```
-
-var hoist hota hai but undefined assign hota hai.
-
----
-
-## 🌍 Real Life Example
-
-Class me attendance:
-- Teacher pehle sabka naam list me likh leti hai (hoisting)
-- Baad me check karti hai kon present hai (execution)
-
-JavaScript bhi pehle sab variables/functions ko register karta hai memory me, baad me values assign karta hai.
-
----
-
-## 🔄 Workflow
-
-**Code likha:**
-```javascript
-console.log(name);
-var name = "Sumit";
-```
-
-**JavaScript internally karta hai:**
-```javascript
-var name; // hoisted (undefined)
-console.log(name); // undefined
-name = "Sumit"; // assignment
-```
-
-**Function hoisting:**
-```javascript
-greet(); // Works!
-
-function greet() {
-  console.log("Hello");
-}
-```
-
----
-
-## 🔵 English Explanation
-
-Hoisting is JavaScript's behavior of moving variable and function declarations to the top of their scope before execution.
-
----
-
-## 🎯 Interview Answer
-
-Hoisting is JavaScript's default behavior of moving declarations to the top of the scope before code execution.
-
----
-
-# 7️⃣ What is Scope?
-
-## 🟢 Hinglish Explanation
-
-Scope decide karta hai ki variable kaha accessible hoga.
-
-Types:
-- **Global Scope** - Puri file me accessible
-- **Function Scope** - Sirf function ke andar
-- **Block Scope** - Sirf {} ke andar (let/const ke saath)
-
----
-
-## 🌍 Real Life Example
-
-**Global Scope** - TV remote jo ghar me kahi bhi use ho sakta hai
-
-**Function Scope** - Bedroom ki chaabi jo sirf bedroom ke andar kaam karegi
-
-**Block Scope** - Locker ki chaabi jo sirf us specific locker ke liye hai
-
-```javascript
-let tvRemote = "Living Room"; // Global - sab use kar sakte
-
-function bedroom() {
-  let bedroomKey = "Private"; // Function scope
-  
-  if (true) {
-    let lockerKey = "Secret"; // Block scope
-  }
-}
-```
-
----
-
-## 🔄 Workflow
-
-```
-Global Scope
-    ├── Variable A (accessible everywhere)
-    │
-    ├── Function Scope
-    │    ├── Variable B (accessible only in function)
-    │    │
-    │    └── Block Scope { }
-    │         └── Variable C (accessible only in block)
-    │
-    └── Another Function Scope
-         └── Variable B (different B, not accessible outside)
-```
-
----
-
-## 🔵 English Explanation
-
-Scope defines where a variable can be accessed in a program.
-
-Types:
-- Global Scope
-- Function Scope
-- Block Scope
-
----
-
-## 🎯 Interview Answer
-
-Scope determines the accessibility of variables in JavaScript. It can be global, function, or block scope.
-
----
-
-# 8️⃣ Global Scope vs Local Scope
-
-## 🟢 Hinglish Explanation
-
-### 🔹 Global Scope
-Sab jagah accessible hota hai.
-
-```javascript
-let globalVar = "I am global";
-
-function test() {
-  console.log(globalVar); // ✅ Accessible
-}
-```
-
-### 🔹 Local Scope
-Sirf function ya block ke andar accessible hota hai.
-
-```javascript
-function test() {
-  let localVar = "I am local";
-}
-console.log(localVar); // ❌ Error
-```
-
----
-
-## 🌍 Real Life Example
-
-**Global Scope** - WhatsApp status jo sabko dikhta hai (public)
-
-**Local Scope** - Personal diary jo sirf aapko dikhti hai (private)
-
----
-
-## 🔄 Workflow
-
-```
-Global Scope
-    let username = "Sumit"
-    │
-    ├── Function A
-    │    │ ✅ Can access username
-    │    └── let password = "secret123"
-    │         ❌ Not accessible outside
-    │
-    └── Function B
-         ✅ Can access username
-         ❌ Cannot access password
-```
-
----
-
-## 🔵 English Explanation
-
-### 🔹 Global Scope
-Accessible throughout the program.
-
-### 🔹 Local Scope
-Accessible only inside a function or block.
-
----
-
-## 🎯 Interview Answer
-
-Global scope variables are accessible everywhere, while local scope variables are accessible only within their function or block.
-
----
-
-# 9️⃣ What is undefined?
-
-## 🟢 Hinglish Explanation
-
-Undefined ka matlab:
-Variable declare hua hai lekin value assign nahi hui.
-
-```javascript
-let x;
-console.log(x); // undefined
-```
-
-JavaScript automatically undefined assign karta hai.
-
----
-
-## 🌍 Real Life Example
-
-Form me aapne naam ka field chhod diya:
-- Field exist karta hai (declared)
-- Par value nahi bhari (undefined)
-
-```javascript
-let firstName; // Field exists
-console.log(firstName); // undefined - no value filled
-```
-
----
-
-## 🔄 Workflow
-
-```
-Variable Declaration → Memory Allocated → Default Value (undefined) → Actual Value Assignment
-```
-
-Example:
-```javascript
-let age; // Declaration → undefined
-console.log(age); // undefined
-age = 23; // Assignment
-console.log(age); // 23
-```
-
----
-
-## 🔵 English Explanation
-
-Undefined means a variable has been declared but not assigned a value.
-
----
-
-## 🎯 Interview Answer
-
-Undefined is a data type that represents a variable declared but not yet assigned a value.
-
----
-
-# 🔟 What is null?
-
-## 🟢 Hinglish Explanation
-
-Null ka matlab:
-Intentionally empty value.
-
-Developer khud set karta hai.
-
-```javascript
-let currentUser = null; // Intentionally no user
-```
-
----
-
-## 🌍 Real Life Example
-
-**null** - Parking slot jo intentionally khali chhoda gaya hai (reserved but empty)
-
-**undefined** - Parking slot jiska number hi assign nahi hua
-
-```javascript
-let reservedSlot = null; // Intentionally empty
-let unassignedSlot; // undefined - not yet assigned
-```
-
----
-
-## 🔄 Workflow
-
-```
-Developer Decision → Intentionally Set Empty → null
-
-VS
-
-JavaScript Default → No Value Assigned → undefined
-```
-
----
-
-## 🔵 English Explanation
-
-Null represents an intentional absence of value.
-
-It is assigned manually by the developer.
-
----
-
-## 🎯 Interview Answer
-
-Null is a special value that represents the intentional absence of any object value.
-
----
-
-# 1️⃣1️⃣ What are Promises?
-
-## 🟢 Hinglish Explanation
-
-Promise ek aisa object hai jo kisi future mein kisi asynchronous operation ke complete hone par result return karega (fulfill ya reject).
-
-Example:
-```javascript
-let myPromise = new Promise((resolve, reject) => {
-  setTimeout(() => resolve("Done!"), 1000);
-});
-```
-
----
-
-## 🌍 Real Life Example
-
-**Promise** - Jaise aap ek restaurant se food order karte hain:
-- Aapne order place kiya (waiting for the fulfillment)
-- Jaise hi food ready hota hai, restaurant call karta hai (resolve)
-- Agar food nahi aata hai to restaurant call karega ki order nahi hua (reject)
-
----
-
-## 🔄 Workflow
-
-1. Promise create kiya (pending state)
-2. Asynchronous operation chalu hua
-3. Operation complete hua to resolve ya reject hua
-
----
-
-## 🔵 English Explanation
-
-A Promise is an object representing the eventual completion or failure of an asynchronous operation.
-
----
-
-## 🎯 Interview Answer
-
-A Promise is an object that may be in one of three states: pending, fulfilled, or rejected.
-
----
-
-# 1️⃣2️⃣ What is Async/Await?
-
-## 🟢 Hinglish Explanation
-
-Async/await ek syntax sugar hai jo promises ko handle karne ka aasan tareeqa hai.
-
-```javascript
-async function fetchData() {
-  let response = await myPromise;
-  console.log(response);
-}
-```
-
----
-
-## 🌍 Real Life Example
-
-**Async/await** - Jaise aap ek movie dekh rahe hain:
-- Movie play ho rahi hai (asynchronous)
-- Jab tak movie khatam hone ka wait karte hain, progress dekhte hain (await)
-
----
-
-## 🔄 Workflow
-
-1. Function ko `async` mark karte hain.
-2. `await` ke sath promise ko wait karte hain.
-3. Output jab ready ho tab result handle karte hain.
-
----
-
-## 🔵 English Explanation
-
-Async/await is a syntax that makes it easier to work with promises by allowing us to write asynchronous code in a synchronous fashion.
-
----
-
-## 🎯 Interview Answer
-
-Async/await is a modern way to write asynchronous code in JavaScript that makes it more readable and easier to work with.
-
----
-
-# 1️⃣3️⃣ What are Closures?
-
-## 🟢 Hinglish Explanation
-
-Closure ek function hai jo apni outer function ki variables ko yaad rakhta hai, jab woh outer function call hota hai.
-
-Example:
-```javascript
-function outer() {
-  let count = 0;
-  return function inner() {
-    count++;
-    return count;
-  };
-}
-
-let counter = outer();
-console.log(counter()); // 1
-console.log(counter()); // 2
-```
-
----
-
-## 🌍 Real Life Example
-
-**Closures** - Jaise ek secret diary:
-- Diary jiski key aapke paas hai (inner)
-- Aap diary jitni baar open karte hain, woh updates yaad rakhta hai (access outer variables)
-
----
-
-## 🔄 Workflow
-
-1. Outer function call hota hai aur variable create hota hai.
-2. Inner function return hota hai, jo outer variable ko retain karta hai.
-
----
-
-## 🔵 English Explanation
-
-A closure is a function that has access to its own scope, the outer function’s scope, and the global scope.
-
----
-
-## 🎯 Interview Answer
-
-A closure allows a function to access its lexical scope, even when the function is executing outside that lexical scope.
-
----
-
-# 1️⃣4️⃣ What is the Event Loop?
-
-## 🟢 Hinglish Explanation
-
-Event Loop JavaScript ka mechanism hai jo asynchronous code ko handle karta hai, event queue ko process karta hai.
-
-Example:
-```javascript
-console.log("Start");
-setTimeout(() => {
-  console.log("Inside Timeout");
-}, 0);
-console.log("End");
-```
-
----
-
-## 🌍 Real Life Example
-
-**Event Loop** - Jaise ek restaurant me wait staff:
-- Wait staff orders collect karta hai (event queue)
-- Order karta hai jab sab ka order complete ho jata hai (event loop checks queue)
-
----
-
-## 🔄 Workflow
-
-1. Call stack me synchronous code execute hota hai.
-2. Asynchronous tasks ko put karte hain Web API me.
-3. Jab stack khali hota hai, event loop ko check karta hai event queue ko.
-
----
-
-## 🔵 English Explanation
-
-The Event Loop is a mechanism that allows JavaScript to perform non-blocking operations by putting the asynchronous tasks in an event queue and executing them when the call stack is empty.
-
----
-
-## 🎯 Interview Answer
-
-The Event Loop allows JavaScript to execute asynchronous code, ensuring that code execution is efficient and non-blocking.
-
----
-
-# 1️⃣5️⃣ What are Higher-Order Functions?
-
-## 🟢 Hinglish Explanation
-
-Higher-Order Functions aise functions hain jo dusre functions ko input le sakte hain ya return kar sakte hain.
-
-Example:
-```javascript
-function add(a, b) {
-  return a + b;
-}
-
-function calculator(func, a, b) {
-  return func(a, b);
-}
-
-console.log(calculator(add, 5, 3)); // 8
-```
-
----
-
-## 🌍 Real Life Example
-
-**Higher-Order Functions** - Jaise ek recipe book:
-- Recipe book me ingredients aur instructions hain (functions)
-- Aap specific recipe choose kar sakte hain, jo aapko results dega (higher-order functions call karega)
-
----
-
-## 🔄 Workflow
-
-1. Higher-order function ko call karte hain.
-2. Input ko process karte hain (function ya result).
-
----
-
-## 🔵 English Explanation
-
-A higher-order function is a function that takes other functions as arguments or returns a function as a result.
-
----
-
-## 🎯 Interview Answer
-
-Higher-order functions allow for more abstract code and are a fundamental part of functional programming in JavaScript.
-
----
-
-# 1️⃣6️⃣ What is Object-Oriented Programming (OOP)?
-
-## 🟢 Hinglish Explanation
-
-Object-Oriented Programming programming ka ek method hai jo objects use karta hai data aur behavior ko encapsulate karne ke liye.
-
-Example:
-```javascript
-class Car {
-  constructor(brand, model) {
-    this.brand = brand;
-    this.model = model;
-  }
-
-  display() {
-    return `${this.brand} ${this.model}`;
-  }
-}
-
-let myCar = new Car("Toyota", "Camry");
-console.log(myCar.display());
-```
-
----
-
-## 🌍 Real Life Example
-
-**OOP** - Jaise ek car company:
-- Car ek object hai jo features (attributes) aur behaviors (methods) rakhta hai.
-- Har car ka apna brand, model aur functions hote hain (like driving, stopping).
-
----
-
-## 🔄 Workflow
-
-1. Class define hoti hai.
-2. Object create hota hai class se.
-3. Object methods aur properties ko access kar sakta hai.
-
----
-
-## 🔵 English Explanation
-
-Object-Oriented Programming (OOP) is a programming paradigm based on the concept of “objects”, which can contain data and code: data in the form of fields and code, in the form of procedures.
-
----
-
-## 🎯 Interview Answer
-
-OOP is a programming style that uses objects to model real-world entities, encapsulating data and behaviors in a structured manner.
-
----
-
-# 1️⃣7️⃣ What are the Principles of OOP?
-
-## 🟢 Hinglish Explanation
-
-OOP ki chaar primary principles hain:
-- **Encapsulation** - Data protection.
-- **Abstraction** - Complexity chhupana.
-- **Inheritance** - Properties ka reuse.
-- **Polymorphism** - Methods ka different behavior.
-
----
-
-## 🌍 Real Life Example
-
-- **Encapsulation** - Aapka mobile lock screen: sirf aap hi access kar sakte hain.
-- **Abstraction** - Aapka car ka dashboard: sirf necessary information dikhata hai.
-- **Inheritance** - Ek car jo bike se shared features le sakti hai.
-- **Polymorphism** - Different geometric shapes ka area calculate karne ka method jo shape ke hisab se badal sakta hai.
-
----
-
-## 🔄 Workflow
-
-1. Class define hoti hai.
-2. Data aur methods encapsulate karte hain.
-3. Inherited classes parent class se methods aur properties le sakte hain.
-4. Method override karna, polymorphism ka istemal hai.
-
----
-
-## 🔵 English Explanation
-
-The main principles of Object-Oriented Programming include encapsulation, abstraction, inheritance, and polymorphism, each of which contributes to better organization and modularity of code.
-
----
-
-## 🎯 Interview Answer
-
-The primary principles of OOP are encapsulation, abstraction, inheritance, and polymorphism, which help in organizing and structuring code efficiently.
-
----
-
-# 1️⃣8️⃣ What is Functional Programming?
-
-## 🟢 Hinglish Explanation
-
-Functional Programming ek programming paradigm hai jo functions ko first-class citizens ke roop me treat karta hai aur state changes aur mutable data ko minimize karta hai.
-
-Example:
-```javascript
-const square = (x) => x * x;
-const numbers = [1, 2, 3];
-const squares = numbers.map(square);
-console.log(squares); // [1, 4, 9]
-```
-
----
-
-## 🌍 Real Life Example
-
-**Functional Programming** - Jaise ek factory:
-- Factory raw materials ko input karta hai (functions).
-- Output me finished products milte hain (resulting data), bina altering workings (immutable).
-
----
-
-## 🔄 Workflow
-
-1. Functions ko define karte hain bina side effects ke.
-2. Data transform karte hain aur generate karte hain naye data.
-
----
-
-## 🔵 English Explanation
-
-Functional Programming is a programming paradigm created by using functions to construct the program logic and avoid state changes and mutable data.
-
----
-
-## 🎯 Interview Answer
-
-Functional programming emphasizes the use of pure functions and discourages changing-state and mutable data, focusing on the execution of functions.
-
----
-
-# 1️⃣9️⃣ What is Data Structures?
-
-## 🟢 Hinglish Explanation
-
-Data Structures aise tariko hain jo data ko organize, store aur manage karte hain efficiently.
-
-Example:
-- **Array** - Collection of elements.
-- **LinkedList** - Collection of nodes.
-
----
-
-## 🌍 Real Life Example
-
-**Data Structures** - Jaise ek bookshelf:
-- Books ko organize karna (array).
-- Book ko link karna ek dusre se (linked list).
-
----
-
-## 🔄 Workflow
-
-1. Data ko collection me store karte hain.
-2. Efficiently access aur manage karte hain data.
-
----
-
-## 🔵 English Explanation
-
-Data structures are specialized formats for organizing and storing data on a computer.
-
----
-
-## 🎯 Interview Answer
-
-Data structures allow developers to manage and organize data efficiently, enabling optimal access and manipulation.
-
----
-
-# 2️⃣0️⃣ What is Algorithms?
-
-## 🟢 Hinglish Explanation
-
-Algorithm ek step-by-step procedure hai jo ko kisi problem ko solve karte hain. 
-
-Example:
-Sorting algorithm jaise Quick sort, Merge sort hota hai jo data ko sort karne ke liye use hote hain.
-
----
-
-## 🌍 Real Life Example
-
-**Algorithms** - Jaise ek cooking recipe:
-- Recipe steps ko follow karna (solution).
-
----
-
-## 🔄 Workflow
-
-1. Problem ko define karte hain.
-2. Steps ya processes ko outline karte hain jo solution dene ke liye use honge.
-
----
-
-## 🔵 English Explanation
-
-An algorithm is a process or set of rules that must be followed in calculations or other problem-solving operations, especially by a computer.
-
----
-
-## 🎯 Interview Answer
-
-An algorithm is a set of instructions designed to perform a specific task or solve a certain problem, laying out the logical steps required for execution.
+1. Question: What is JavaScript?
+   Workflow: JavaScript is a programming language that is commonly used in web development. It allows for dynamic content and complex interactions on web pages.
+   Real-Life Example: A website that displays a slideshow of images.
+   Hinglish Explanation: JavaScript ek programming language hai jo web development mein use hoti hai. Yeh webpages pe dynamic content aur complex interactions ki ijazat deti hai.
+   English Translation: JavaScript is a programming language used in web development that allows dynamic content and complex interactions on web pages.
+   Interview Answer: JavaScript is a high-level, interpreted programming language that supports object-oriented, imperative, and functional programming styles. It is primarily used for creating interactive web applications.
+
+2. Question: What are variables in JavaScript?
+   Workflow: Variables are containers for storing data values.
+   Real-Life Example: A box where you keep your belongings.
+   Hinglish Explanation: JavaScript mein variables data values rakhne ke liye containers hote hain.
+   English Translation: In JavaScript, variables are containers for storing data values.
+   Interview Answer: Variables are used to store data values. In JavaScript, you can declare a variable using `var`, `let`, or `const` keywords.
+
+3. Question: What is a function?
+   Workflow: A function is a block of code designed to perform a particular task.
+   Real-Life Example: A recipe for making a cake.
+   Hinglish Explanation: Function ek block of code hai jo kisi particular task ko perform karne ke liye design kiya gaya hai.
+   English Translation: A function is a block of code designed to perform a task.
+   Interview Answer: A function is a reusable piece of code that can be executed when called upon. Functions help in organizing code and improving its reusability.
+
+4. Question: What are arrays?
+   Workflow: Arrays are used to store multiple values in a single variable.
+   Real-Life Example: A collection of books in a library.
+   Hinglish Explanation: Arrays ek hi variable mein multiple values store karne ke liye use hoti hain.
+   English Translation: Arrays are used to store multiple values in one variable.
+   Interview Answer: An array is a special variable that can hold more than one value at a time. It can hold items of different data types.
+
+5. Question: What is an object?
+   Workflow: An object is a standalone entity that holds data and behavior.
+   Real-Life Example: A car having properties like color, model, and functionalities like driving.
+   Hinglish Explanation: JavaScript mein object ek standalone entity hai jo data aur behavior hold karti hai.
+   English Translation: In JavaScript, an object is a standalone entity that holds data and behavior.
+   Interview Answer: An object is a collection of properties, where a property is an association between a name (key) and a value.
+
+6. Question: What is a callback function?
+   Workflow: A callback function is a function passed as an argument to another function.
+   Real-Life Example: A chef who waits for a customer to give instructions before starting to cook.
+   Hinglish Explanation: Callback function ek aisi function hai jo dusri function ko argument ke roop mein diya jata hai.
+   English Translation: A callback function is a function provided as an argument to another function.
+   Interview Answer: A callback function is invoked after some operation has been completed, often used in asynchronous programming.
+
+7. Question: What is the difference between == and ===?
+   Workflow: `==` checks for value equality, while `===` checks for both value and type equality.
+   Real-Life Example: Comparing a string to a number.
+   Hinglish Explanation: `==` sirf value ki equality check karta hai, jabki `===` value aur type dono ki equality check karta hai.
+   English Translation: `==` checks for value equality, while `===` checks for both value and type equality.
+   Interview Answer: `==` performs type coercion if necessary, whereas `===` does not allow type coercion.
+
+8. Question: What is DOM?
+   Workflow: DOM (Document Object Model) is an interface that browsers use to represent web documents.
+   Real-Life Example: A tree structure representing HTML elements.
+   Hinglish Explanation: DOM ek interface hai jo browsers web documents ko represent karne ke liye use karte hain.
+   English Translation: The DOM is an interface browsers use to represent web documents.
+   Interview Answer: The Document Object Model is a programming interface for web documents that represents the structure of a document and allows manipulation.
+
+9. Question: What is an event?
+   Workflow: An event is an action that occurs in the browser, such as a mouse click or keyboard press.
+   Real-Life Example: Clicking a button to submit a form.
+   Hinglish Explanation: Event ek action hai jo browser mein hota hai, jaise kisi button par click karna.
+   English Translation: An event is an action that occurs in the browser, like a mouse click or keyboard press.
+   Interview Answer: Events are triggered by the user’s interaction and can be handled using event listeners.
+
+10. Question: What are promises?
+    Workflow: Promises are objects that represent the eventual completion or failure of an asynchronous operation.
+    Real-Life Example: Ordering a product online and waiting for delivery.
+    Hinglish Explanation: Promises ek object hain jo ek asynchronous operation ke eventual completion ya failure ko represent karte hain.
+    English Translation: Promises represent the eventual completion or failure of an asynchronous operation.
+    Interview Answer: A promise is a placeholder for a value that will be available in the future, offering a cleaner alternative to callback functions.
+
+11. Question: What is AJAX?
+    Workflow: AJAX (Asynchronous JavaScript and XML) allows for data to be loaded asynchronously in the background.
+    Real-Life Example: Updating a portion of a web page without reloading it.
+    Hinglish Explanation: AJAX data ko background mein asynchronously load karne ke liye use hota hai.
+    English Translation: AJAX allows for asynchronous data loading.
+    Interview Answer: AJAX enables web applications to retrieve data from the server asynchronously, increasing the performance and responsiveness of web pages.
+
+12. Question: What is JSON?
+    Workflow: JSON (JavaScript Object Notation) is a lightweight data interchange format.
+    Real-Life Example: Structuring data for a server response.
+    Hinglish Explanation: JSON ek lightweight data format hai jo data interchange ke liye use hota hai.
+    English Translation: JSON is a lightweight data interchange format.
+    Interview Answer: JSON is a format for encoding data that is easy for humans to read and write, and easy for machines to parse and generate.
+
+13. Question: What is a closure?
+    Workflow: A closure is a function that retains access to the scope in which it was created.
+    Real-Life Example: A bank account that remembers your balance even after you depersonalize the ATM.
+    Hinglish Explanation: Closure ek function hai jo us scope ko access kar leta hai jis mein yeh banaya gaya tha.
+    English Translation: A closure retains access to the scope in which it was created.
+    Interview Answer: Closures allow a function to access variables from an outer function even after the outer function has finished executing.
+
+14. Question: What is the `this` keyword?
+    Workflow: The `this` keyword refers to the object that is executing the current function.
+    Real-Life Example: A recipe that refers to a specific cook.
+    Hinglish Explanation: `this` keyword un object ko refer karta hai jo current function ko execute kar raha hai.
+    English Translation: The `this` keyword refers to the object executing the current function.
+    Interview Answer: The value of `this` can be dynamic and depends on how a function is invoked.
+
+15. Question: What is the spread operator?
+    Workflow: The spread operator allows an iterable like an array or string to be expanded in places where zero or more arguments are expected.
+    Real-Life Example: Combining two lists of ingredients.
+    Hinglish Explanation: Spread operator iterable ko expand karne ki ijazat deta hai.
+    English Translation: The spread operator allows an iterable to be expanded at specific points.
+    Interview Answer: The spread operator (`...`) is used to unpack elements from arrays or properties from objects.
+
+16. Question: What is event delegation?
+    Workflow: Event delegation is a technique of using a single event listener for multiple elements.
+    Real-Life Example: A teacher managing multiple students.
+    Hinglish Explanation: Event delegation ek technique hai jisme ek event listener se multiple elements handle kiye jaate hain.
+    English Translation: Event delegation is a technique where a single listener manages multiple events.
+    Interview Answer: Event delegation improves performance and simplifies handling events on dynamically added elements.
+
+17. Question: What is the difference between `null` and `undefined`?
+    Workflow: `null` is an assignment value, while `undefined` means a variable has been declared but not assigned.
+    Real-Life Example: A box that is open but empty (null) versus a box that has not been put on the shelf yet (undefined).
+    Hinglish Explanation: `null` assignment value hai, jabki `undefined` yeh dikhata hai ki variable declare hua hai lekin assign nahi hua hai.
+    English Translation: `null` is an assigned value, whereas `undefined` indicates a variable has been declared but not assigned a value.
+    Interview Answer: `null` is intentional absence of any value, while `undefined` signifies that a variable is declared without a value.
+
+18. Question: What are template literals?
+    Workflow: Template literals are string literals allowing embedded expressions.
+    Real-Life Example: Using a formatted string to display a message.
+    Hinglish Explanation: Template literals string literals hain jo embedded expressions ki ijazat dete hain.
+    English Translation: Template literals allow embedded expressions in strings.
+    Interview Answer: Template literals are enclosed by backticks (`` ` ``) and allow multi-line strings and string interpolation.
+
+19. Question: What is hoisting?
+    Workflow: Hoisting is the JavaScript mechanism where variables and function declarations are moved to the top of their containing scope.
+    Real-Life Example: Arranging books in a library before putting them on the shelf.
+    Hinglish Explanation: Hoisting wo mechanism hai jisme variables aur function declarations unke containing scope ke top pe le jaaye jaate hain.
+    English Translation: Hoisting moves declarations to the top of their containing scope.
+    Interview Answer: JavaScript hoists declarations but not initializations, meaning you can use variables before they are declared.
+
+20. Question: What is the event loop?
+    Workflow: The event loop is a task queue used to manage asynchronous operations in JavaScript.
+    Real-Life Example: A waiter taking orders and serving them to the kitchen at a restaurant.
+    Hinglish Explanation: Event loop ek task queue hai jo asynchronous operations ko manage karta hai.
+    English Translation: The event loop manages asynchronous operations in JavaScript.
+    Interview Answer: The event loop handles callbacks and manages the order of execution in JavaScript's non-blocking event-driven architecture.
