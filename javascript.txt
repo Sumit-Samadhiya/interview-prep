@@ -1,0 +1,2622 @@
+# 1️⃣ What is JavaScript?
+
+## 🟢 Hinglish Explanation
+
+JavaScript ek **high-level programming language** hai jo websites ko **interactive aur dynamic** banane ke liye use hoti hai.
+
+Example:
+- Button click handle karna  
+- Form validation karna  
+- Page reload kiye bina data fetch karna  
+- Animations aur dynamic content show karna  
+
+JavaScript browser ke andar run hoti hai.  
+Backend me bhi use hoti hai using **Node.js**.
+
+Simple samjho:
+- HTML → Structure deta hai  
+- CSS → Design deta hai  
+- JavaScript → Logic aur behavior deta hai  
+
+---
+
+## 🔵 English Explanation
+
+JavaScript is a **high-level programming language** used to make websites **interactive and dynamic**.
+
+Examples:
+- Handling button clicks  
+- Validating forms  
+- Fetching data without reloading the page  
+- Displaying dynamic content and animations  
+
+JavaScript runs inside the browser.  
+It can also be used on the backend using **Node.js**.
+
+In simple terms:
+- HTML → Provides structure  
+- CSS → Provides styling  
+- JavaScript → Provides logic and behavior  
+
+---
+
+## 🎯 Interview Answer
+
+JavaScript is a high-level, interpreted programming language used to create interactive and dynamic web applications.  
+It runs in the browser and can also be used on the backend using Node.js.
+
+
+# 2️⃣ Is JavaScript synchronous or asynchronous?
+
+## 🟢 Hinglish Explanation
+
+JavaScript by default **synchronous** hoti hai.
+
+Matlab:
+Code line-by-line execute hota hai.  
+Ek kaam khatam hone ke baad hi next kaam start hota hai.
+
+Lekin JavaScript **asynchronous behavior support karti hai**:
+- setTimeout()
+- Promises
+- async/await
+- fetch()
+
+Iska matlab hai:
+Heavy task background me chalega aur baaki code rukega nahi.
+
+---
+
+## 🔵 English Explanation
+
+JavaScript is **synchronous by default**, meaning code executes line by line.
+
+However, it supports **asynchronous behavior** using:
+- setTimeout()
+- Promises
+- async/await
+- fetch()
+
+This allows long-running tasks to execute in the background without blocking the main thread.
+
+---
+
+## 🎯 Interview Answer
+
+JavaScript is synchronous by default, but it supports asynchronous operations using callbacks, promises, and async/await to handle non-blocking tasks.
+
+
+# 3️⃣ Is JavaScript single-threaded?
+
+## 🟢 Hinglish Explanation
+
+Haan, JavaScript **single-threaded** hai.
+
+Iska matlab:
+Ek time pe sirf ek hi task execute hota hai.
+
+JavaScript ek **single call stack** use karti hai.
+
+Lekin Event Loop ke through asynchronous tasks handle kiye jate hain.
+
+---
+
+## 🔵 English Explanation
+
+Yes, JavaScript is **single-threaded**, meaning it executes one task at a time.
+
+It uses a single call stack.
+
+Asynchronous tasks are handled using the **Event Loop**.
+
+---
+
+## 🎯 Interview Answer
+
+Yes, JavaScript is single-threaded. It uses a single call stack and handles asynchronous operations using the event loop.
+
+
+# 4️⃣ What are the data types in JavaScript?
+
+## 🟢 Hinglish Explanation
+
+JavaScript me 2 types ke data types hote hain:
+
+### 🔹 Primitive Data Types
+- String
+- Number
+- Boolean
+- Undefined
+- Null
+- BigInt
+- Symbol
+
+### 🔹 Non-Primitive (Reference Type)
+- Object
+- Array
+- Function
+
+---
+
+## 🔵 English Explanation
+
+JavaScript has two types of data types:
+
+### 🔹 Primitive Data Types
+- String
+- Number
+- Boolean
+- Undefined
+- Null
+- BigInt
+- Symbol
+
+### 🔹 Non-Primitive (Reference Type)
+- Object
+- Array
+- Function
+
+---
+
+## 🎯 Interview Answer
+
+JavaScript has two categories of data types: primitive types like string, number, boolean, null, undefined, symbol, and BigInt, and non-primitive types like objects and arrays.
+
+
+# 5️⃣ Difference between var, let, and const
+
+## 🟢 Hinglish Explanation
+
+### 🔹 var
+- Function scoped
+- Hoisted hota hai
+- Re-declare aur re-assign dono kar sakte hain
+
+### 🔹 let
+- Block scoped
+- Hoisted hota hai but TDZ me rehta hai
+- Re-assign kar sakte hain, re-declare nahi
+
+### 🔹 const
+- Block scoped
+- Value change nahi kar sakte
+- Re-declare nahi kar sakte
+
+---
+
+## 🔵 English Explanation
+
+### 🔹 var
+- Function scoped
+- Hoisted
+- Can be re-declared and re-assigned
+
+### 🔹 let
+- Block scoped
+- Hoisted but in temporal dead zone
+- Can be re-assigned but not re-declared
+
+### 🔹 const
+- Block scoped
+- Cannot be re-assigned
+- Cannot be re-declared
+
+---
+
+## 🎯 Interview Answer
+
+The main difference is that var is function-scoped, while let and const are block-scoped. Let allows reassignment but const does not.
+
+
+# 6️⃣ What is Hoisting?
+
+## 🟢 Hinglish Explanation
+
+Hoisting ka matlab hai:
+Variable aur function declaration ko memory me upar move kar dena before execution.
+
+Example:
+var hoist hota hai but undefined assign hota hai.
+
+---
+
+## 🔵 English Explanation
+
+Hoisting is JavaScript’s behavior of moving variable and function declarations to the top of their scope before execution.
+
+---
+
+## 🎯 Interview Answer
+
+Hoisting is JavaScript’s default behavior of moving declarations to the top of the scope before code execution.
+
+
+# 7️⃣ What is Scope?
+
+## 🟢 Hinglish Explanation
+
+Scope decide karta hai ki variable kaha accessible hoga.
+
+Types:
+- Global Scope
+- Function Scope
+- Block Scope
+
+---
+
+## 🔵 English Explanation
+
+Scope defines where a variable can be accessed in a program.
+
+Types:
+- Global Scope
+- Function Scope
+- Block Scope
+
+---
+
+## 🎯 Interview Answer
+
+Scope determines the accessibility of variables in JavaScript. It can be global, function, or block scope.
+
+
+# 8️⃣ Global Scope vs Local Scope
+
+## 🟢 Hinglish Explanation
+
+### 🔹 Global Scope
+Sab jagah accessible hota hai.
+
+### 🔹 Local Scope
+Sirf function ya block ke andar accessible hota hai.
+
+---
+
+## 🔵 English Explanation
+
+### 🔹 Global Scope
+Accessible throughout the program.
+
+### 🔹 Local Scope
+Accessible only inside a function or block.
+
+---
+
+## 🎯 Interview Answer
+
+Global scope variables are accessible everywhere, while local scope variables are accessible only within their function or block.
+
+
+# 9️⃣ What is undefined?
+
+## 🟢 Hinglish Explanation
+
+Undefined ka matlab:
+Variable declare hua hai lekin value assign nahi hui.
+
+---
+
+## 🔵 English Explanation
+
+Undefined means a variable has been declared but not assigned a value.
+
+---
+
+## 🎯 Interview Answer
+
+Undefined is a data type that represents a variable declared but not yet assigned a value.
+
+
+# 🔟 What is null?
+
+## 🟢 Hinglish Explanation
+
+Null ka matlab:
+Intentionally empty value.
+
+Developer khud set karta hai.
+
+---
+
+## 🔵 English Explanation
+
+Null represents an intentional absence of value.
+
+It is assigned manually by the developer.
+
+---
+
+## 🎯 Interview Answer
+
+Null is a special value that represents the intentional absence of any object value.
+
+
+```markdown
+# 1️⃣ What is the difference between null and undefined?
+
+## 🟢 Hinglish Explanation
+
+### 🔹 undefined
+- Jab variable declare hota hai but value assign nahi hoti.
+- JavaScript automatically assign karta hai.
+
+Example:
+let a;
+console.log(a); // undefined
+
+### 🔹 null
+- Developer khud intentionally empty value assign karta hai.
+- Matlab: "Yaha koi value nahi hai"
+
+Example:
+let b = null;
+
+### 🔥 Main Difference
+- undefined → value assign nahi hui
+- null → intentionally empty value assign ki gayi
+
+---
+
+## 🔵 English Explanation
+
+### 🔹 undefined
+- A variable is declared but not assigned a value.
+- JavaScript assigns it automatically.
+
+### 🔹 null
+- Represents an intentional absence of value.
+- Assigned manually by the developer.
+
+### 🔥 Key Difference
+- undefined → no value assigned
+- null → intentionally assigned empty value
+
+---
+
+## 🎯 Interview Answer
+
+Undefined means a variable has been declared but not assigned a value, while null represents an intentional absence of value assigned by the developer.
+```
+
+---
+
+```markdown
+# 2️⃣ What are truthy and falsy values?
+
+## 🟢 Hinglish Explanation
+
+JavaScript me kuch values condition me true behave karti hain (truthy) aur kuch false behave karti hain (falsy).
+
+### 🔹 Falsy Values (Total 7)
+- false
+- 0
+- -0
+- 0n
+- ""
+- null
+- undefined
+- NaN
+
+Inke alawa sab values truthy hoti hain.
+
+Example:
+if("Hello") → true (truthy)
+if(0) → false (falsy)
+
+---
+
+## 🔵 English Explanation
+
+In JavaScript, some values behave as true (truthy) and some as false (falsy) in conditional statements.
+
+### 🔹 Falsy Values
+- false
+- 0
+- -0
+- 0n
+- ""
+- null
+- undefined
+- NaN
+
+All other values are considered truthy.
+
+---
+
+## 🎯 Interview Answer
+
+Truthy values evaluate to true in a Boolean context, while falsy values evaluate to false. JavaScript has specific falsy values like false, 0, null, undefined, and NaN.
+```
+
+---
+
+```markdown
+# 3️⃣ What is type coercion?
+
+## 🟢 Hinglish Explanation
+
+Type coercion ka matlab hai JavaScript ka automatically ek data type ko dusre type me convert kar dena.
+
+Example:
+"5" + 2 → "52" (number string me convert ho gaya)
+"5" - 2 → 3 (string number me convert ho gaya)
+
+JavaScript weakly typed language hai, isliye automatic conversion hota hai.
+
+---
+
+## 🔵 English Explanation
+
+Type coercion is the automatic conversion of one data type to another by JavaScript.
+
+Example:
+"5" + 2 → "52"
+"5" - 2 → 3
+
+JavaScript is loosely typed, so it performs automatic conversions.
+
+---
+
+## 🎯 Interview Answer
+
+Type coercion is JavaScript’s automatic conversion of values from one data type to another during operations.
+```
+
+---
+
+```markdown
+# 4️⃣ Difference between == and ===
+
+## 🟢 Hinglish Explanation
+
+### 🔹 ==
+- Sirf value compare karta hai
+- Type conversion karta hai (type coercion)
+
+Example:
+"5" == 5 → true
+
+### 🔹 ===
+- Value + type dono compare karta hai
+- Type conversion nahi karta
+
+Example:
+"5" === 5 → false
+
+---
+
+## 🔵 English Explanation
+
+### 🔹 ==
+- Compares values only
+- Performs type coercion
+
+### 🔹 ===
+- Compares both value and type
+- Does not perform type coercion
+
+---
+
+## 🎯 Interview Answer
+
+The double equals operator compares values with type conversion, while the triple equals operator compares both value and type without type conversion.
+```
+
+---
+
+```markdown
+# 5️⃣ What is NaN and how do you check it?
+
+## 🟢 Hinglish Explanation
+
+NaN ka matlab hai "Not a Number".
+
+Jab koi invalid math operation hoti hai tab NaN milta hai.
+
+Example:
+"hello" - 5 → NaN
+
+Check karne ke liye:
+Number.isNaN(value)
+
+---
+
+## 🔵 English Explanation
+
+NaN stands for "Not a Number".
+
+It is returned when a mathematical operation fails.
+
+Example:
+"hello" - 5 → NaN
+
+To check:
+Number.isNaN(value)
+
+---
+
+## 🎯 Interview Answer
+
+NaN means Not a Number and represents an invalid mathematical operation. It can be checked using Number.isNaN().
+```
+
+---
+
+```markdown
+# 6️⃣ Function Declaration vs Function Expression
+
+## 🟢 Hinglish Explanation
+
+### 🔹 Function Declaration
+- Normal function
+- Hoisted hoti hai
+
+Example:
+function greet() {
+  console.log("Hello");
+}
+
+### 🔹 Function Expression
+- Function ko variable me store karte hain
+- Hoisted nahi hoti
+
+Example:
+const greet = function() {
+  console.log("Hello");
+}
+
+---
+
+## 🔵 English Explanation
+
+### 🔹 Function Declaration
+- Defined using function keyword
+- Fully hoisted
+
+### 🔹 Function Expression
+- Stored inside a variable
+- Not fully hoisted
+
+---
+
+## 🎯 Interview Answer
+
+Function declarations are hoisted completely, while function expressions are assigned to variables and are not fully hoisted.
+```
+
+---
+
+```markdown
+# 7️⃣ What are arrow functions?
+
+## 🟢 Hinglish Explanation
+
+Arrow function ES6 me introduce hui.
+
+Short syntax hota hai aur "this" keyword alag behave karta hai.
+
+Example:
+const add = (a, b) => a + b;
+
+Arrow function ka apna "this" nahi hota.
+
+---
+
+## 🔵 English Explanation
+
+Arrow functions were introduced in ES6.
+
+They have shorter syntax and do not have their own this context.
+
+Example:
+const add = (a, b) => a + b;
+
+---
+
+## 🎯 Interview Answer
+
+Arrow functions are a shorter syntax for writing functions in ES6 and they do not have their own this context.
+```
+
+---
+
+```markdown
+# 8️⃣ What is an IIFE?
+
+## 🟢 Hinglish Explanation
+
+IIFE ka full form hai Immediately Invoked Function Expression.
+
+Ye function define hote hi turant execute ho jata hai.
+
+Example:
+(function() {
+  console.log("Hello");
+})();
+
+Use hota hai scope create karne ke liye.
+
+---
+
+## 🔵 English Explanation
+
+IIFE stands for Immediately Invoked Function Expression.
+
+It runs immediately after being defined.
+
+Example:
+(function() {
+  console.log("Hello");
+})();
+
+It is used to create a private scope.
+
+---
+
+## 🎯 Interview Answer
+
+An IIFE is a function that runs immediately after it is defined and is commonly used to create a private scope.
+```
+
+---
+
+```markdown
+# 9️⃣ What is a callback function?
+
+## 🟢 Hinglish Explanation
+
+Callback function ek function hota hai jo dusre function ke andar argument ke roop me pass hota hai.
+
+Example:
+function greet(name, callback) {
+  console.log("Hi " + name);
+  callback();
+}
+
+Use hota hai asynchronous operations me.
+
+---
+
+## 🔵 English Explanation
+
+A callback function is a function passed as an argument to another function.
+
+It is commonly used in asynchronous operations.
+
+---
+
+## 🎯 Interview Answer
+
+A callback function is a function passed into another function as an argument to be executed later.
+```
+
+---
+
+```markdown
+# 🔟 What are higher-order functions?
+
+## 🟢 Hinglish Explanation
+
+Higher-order function wo function hota hai jo:
+- Ek function ko argument ke roop me accept kare
+YA
+- Function return kare
+
+Example:
+map(), filter(), reduce()
+
+---
+
+## 🔵 English Explanation
+
+A higher-order function is a function that:
+- Accepts another function as an argument
+OR
+- Returns a function
+
+Examples:
+map(), filter(), reduce()
+
+---
+
+## 🎯 Interview Answer
+
+A higher-order function is a function that takes another function as an argument or returns a function.
+```
+
+```markdown
+# 1️⃣ What is a Pure Function?
+
+## 🟢 Hinglish Explanation
+
+Pure function wo function hota hai jo:
+
+1. Same input ke liye hamesha same output deta hai  
+2. Bahar ki kisi value ko change nahi karta (no side effects)
+
+Example:
+
+function add(a, b) {
+  return a + b;
+}
+
+Ye pure hai kyunki:
+- Same input → same output
+- Kisi external variable ko change nahi kar raha
+
+Agar function bahar ki variable change kare, to wo pure nahi hoga.
+
+---
+
+## 🔵 English Explanation
+
+A pure function is a function that:
+
+1. Always returns the same output for the same input  
+2. Does not modify external state (no side effects)
+
+Example:
+
+function add(a, b) {
+  return a + b;
+}
+
+It is pure because it always produces the same result and does not change anything outside the function.
+
+---
+
+## 🎯 Interview Answer
+
+A pure function always returns the same output for the same input and does not produce side effects or modify external state.
+```
+
+---
+
+```markdown
+# 2️⃣ What is a Closure?
+
+## 🟢 Hinglish Explanation
+
+Closure tab banta hai jab ek function apne outer function ke variables ko yaad rakhta hai, even jab outer function execute ho chuka ho.
+
+Example:
+
+function outer() {
+  let count = 0;
+  return function inner() {
+    count++;
+    return count;
+  };
+}
+
+Yaha inner function ko count variable yaad rehta hai.
+
+---
+
+## 🔵 English Explanation
+
+A closure is created when an inner function remembers and accesses variables from its outer function even after the outer function has finished executing.
+
+---
+
+## 🎯 Interview Answer
+
+A closure is a function that remembers variables from its lexical scope even after the outer function has executed.
+```
+
+---
+
+```markdown
+# 3️⃣ Why are Closures Useful?
+
+## 🟢 Hinglish Explanation
+
+Closures useful hote hain:
+
+- Data hiding ke liye (private variables)
+- State maintain karne ke liye
+- Function factories banane ke liye
+
+Example:
+Counter banana without exposing variable directly.
+
+---
+
+## 🔵 English Explanation
+
+Closures are useful for:
+
+- Data encapsulation (private variables)
+- Maintaining state
+- Creating function factories
+
+---
+
+## 🎯 Interview Answer
+
+Closures are useful for maintaining state and implementing data privacy by preserving access to variables in their lexical scope.
+```
+
+---
+
+```markdown
+# 4️⃣ What is Currying?
+
+## 🟢 Hinglish Explanation
+
+Currying ka matlab hai ek function ko multiple functions me convert kar dena jo ek-ek argument lete hain.
+
+Example:
+
+function add(a) {
+  return function(b) {
+    return a + b;
+  };
+}
+
+Use:
+add(5)(3);
+
+---
+
+## 🔵 English Explanation
+
+Currying is the technique of transforming a function with multiple arguments into a sequence of functions each taking a single argument.
+
+---
+
+## 🎯 Interview Answer
+
+Currying is a functional programming technique where a function with multiple arguments is transformed into a series of functions that take one argument at a time.
+```
+
+---
+
+```markdown
+# 5️⃣ What is Function Chaining?
+
+## 🟢 Hinglish Explanation
+
+Function chaining me multiple methods ek ke baad ek call kiye jate hain.
+
+Example:
+
+arr.filter(...).map(...).reduce(...);
+
+Isme har function previous function ka result use karta hai.
+
+---
+
+## 🔵 English Explanation
+
+Function chaining is calling multiple methods sequentially where each method operates on the result of the previous one.
+
+Example:
+
+arr.filter().map().reduce();
+
+---
+
+## 🎯 Interview Answer
+
+Function chaining is a technique where multiple methods are called in sequence on the same object, each using the result of the previous method.
+```
+
+---
+
+```markdown
+# 6️⃣ What is Recursion?
+
+## 🟢 Hinglish Explanation
+
+Recursion tab hoti hai jab function khud ko call karta hai.
+
+Example:
+
+function factorial(n) {
+  if (n === 1) return 1;
+  return n * factorial(n - 1);
+}
+
+Important: Base case zaroor hona chahiye warna infinite loop ho jayega.
+
+---
+
+## 🔵 English Explanation
+
+Recursion is a programming technique where a function calls itself.
+
+A base condition is required to stop the recursion.
+
+---
+
+## 🎯 Interview Answer
+
+Recursion is a process where a function calls itself until a base condition is met.
+```
+
+---
+
+```markdown
+# 7️⃣ Difference between map, filter, and reduce
+
+## 🟢 Hinglish Explanation
+
+### 🔹 map()
+- Har element ko modify karta hai
+- Same length ka new array return karta hai
+
+### 🔹 filter()
+- Condition check karta hai
+- Sirf matching elements return karta hai
+
+### 🔹 reduce()
+- Pure array ko ek single value me convert karta hai
+
+---
+
+## 🔵 English Explanation
+
+### 🔹 map()
+- Transforms each element
+- Returns a new array of the same length
+
+### 🔹 filter()
+- Returns elements that match a condition
+
+### 🔹 reduce()
+- Reduces the array to a single value
+
+---
+
+## 🎯 Interview Answer
+
+Map transforms elements, filter selects elements based on a condition, and reduce combines all elements into a single value.
+```
+
+---
+
+```markdown
+# 8️⃣ Difference between forEach and map
+
+## 🟢 Hinglish Explanation
+
+### 🔹 forEach()
+- Loop lagata hai
+- Kuch return nahi karta
+
+### 🔹 map()
+- New array return karta hai
+- Data transformation ke liye use hota hai
+
+---
+
+## 🔵 English Explanation
+
+### 🔹 forEach()
+- Iterates over elements
+- Does not return a new array
+
+### 🔹 map()
+- Returns a new array
+- Used for transforming data
+
+---
+
+## 🎯 Interview Answer
+
+forEach is used for iteration and does not return a new array, while map returns a new transformed array.
+```
+
+---
+
+```markdown
+# 9️⃣ What is Memoization?
+
+## 🟢 Hinglish Explanation
+
+Memoization ek optimization technique hai.
+
+Isme function ka result store kar liya jata hai taaki same input pe dobara calculation na karna pade.
+
+Performance improve hoti hai.
+
+---
+
+## 🔵 English Explanation
+
+Memoization is an optimization technique where function results are cached so that repeated calls with the same input do not require recalculation.
+
+---
+
+## 🎯 Interview Answer
+
+Memoization is an optimization technique that stores previously computed results to improve performance.
+```
+
+---
+
+```markdown
+# 🔟 Difference between Shallow Copy and Deep Copy
+
+## 🟢 Hinglish Explanation
+
+### 🔹 Shallow Copy
+- Sirf first level copy hota hai
+- Nested objects same reference share karte hain
+
+Example:
+Object.assign() / spread operator (...)
+
+### 🔹 Deep Copy
+- Complete nested copy hoti hai
+- Alag memory reference hota hai
+
+Example:
+structuredClone()
+
+---
+
+## 🔵 English Explanation
+
+### 🔹 Shallow Copy
+- Copies only the first level
+- Nested objects share the same reference
+
+### 🔹 Deep Copy
+- Copies all levels
+- Completely separate reference
+
+---
+
+## 🎯 Interview Answer
+
+A shallow copy copies only the top-level properties, while a deep copy creates a fully independent clone including nested objects.
+```
+
+
+```markdown
+# 1️⃣ What is an Object in JavaScript?
+
+## 🟢 Hinglish Explanation
+
+JavaScript me object ek **collection of key-value pairs** hota hai.
+
+Matlab:
+- Key → property ka naam
+- Value → uski value (string, number, function, etc.)
+
+Example:
+
+const person = {
+  name: "Sumit",
+  age: 23,
+  greet: function() {
+    console.log("Hello");
+  }
+};
+
+Object real-world entities ko represent karta hai.
+
+---
+
+## 🔵 English Explanation
+
+An object in JavaScript is a **collection of key-value pairs**.
+
+- Key → property name  
+- Value → property value (string, number, function, etc.)
+
+Example:
+
+const person = {
+  name: "Sumit",
+  age: 23
+};
+
+Objects are used to represent real-world entities.
+
+---
+
+## 🎯 Interview Answer
+
+An object in JavaScript is a collection of key-value pairs used to store and organize related data and functionality.
+```
+
+---
+
+```markdown
+# 2️⃣ How do you create objects in JavaScript?
+
+## 🟢 Hinglish Explanation
+
+Objects banane ke multiple tareeke hain:
+
+### 🔹 1. Object Literal (Most Common)
+
+const obj = { name: "Sumit" };
+
+### 🔹 2. Using new Object()
+
+const obj = new Object();
+
+### 🔹 3. Constructor Function
+
+function Person(name) {
+  this.name = name;
+}
+const p1 = new Person("Sumit");
+
+### 🔹 4. Using class (ES6)
+
+class Person {
+  constructor(name) {
+    this.name = name;
+  }
+}
+
+---
+
+## 🔵 English Explanation
+
+Objects can be created in multiple ways:
+
+- Object literal
+- new Object()
+- Constructor function
+- ES6 class syntax
+
+---
+
+## 🎯 Interview Answer
+
+Objects in JavaScript can be created using object literals, constructor functions, the new keyword, or ES6 classes.
+```
+
+---
+
+```markdown
+# 3️⃣ What is the this keyword?
+
+## 🟢 Hinglish Explanation
+
+this ek special keyword hai jo current object ko refer karta hai.
+
+Example:
+
+const person = {
+  name: "Sumit",
+  greet() {
+    console.log(this.name);
+  }
+};
+
+Yaha this → person object ko refer karega.
+
+---
+
+## 🔵 English Explanation
+
+The this keyword refers to the object that is currently executing the function.
+
+In object methods, this refers to the object itself.
+
+---
+
+## 🎯 Interview Answer
+
+The this keyword refers to the object that is currently calling or executing the function.
+```
+
+---
+
+```markdown
+# 4️⃣ How does this behave in arrow functions?
+
+## 🟢 Hinglish Explanation
+
+Arrow function ka apna this nahi hota.
+
+Wo apne surrounding (lexical scope) ka this use karta hai.
+
+Example:
+
+const obj = {
+  name: "Sumit",
+  greet: () => {
+    console.log(this.name);
+  }
+};
+
+Yaha this global scope ko refer karega, object ko nahi.
+
+---
+
+## 🔵 English Explanation
+
+Arrow functions do not have their own this.
+
+They inherit this from their lexical (surrounding) scope.
+
+---
+
+## 🎯 Interview Answer
+
+Arrow functions do not bind their own this; they inherit it from the surrounding lexical scope.
+```
+
+---
+
+```markdown
+# 5️⃣ What is Prototype in JavaScript?
+
+## 🟢 Hinglish Explanation
+
+Prototype ek object hota hai jisse dusre objects properties aur methods inherit karte hain.
+
+Har function ke paas ek prototype property hoti hai.
+
+Example:
+
+function Person(name) {
+  this.name = name;
+}
+
+Person.prototype.greet = function() {
+  console.log("Hello");
+};
+
+---
+
+## 🔵 English Explanation
+
+A prototype is an object from which other objects inherit properties and methods.
+
+Every function in JavaScript has a prototype property.
+
+---
+
+## 🎯 Interview Answer
+
+A prototype is an object that allows other objects to inherit properties and methods in JavaScript.
+```
+
+---
+
+```markdown
+# 6️⃣ What is Prototypal Inheritance?
+
+## 🟢 Hinglish Explanation
+
+JavaScript me inheritance prototype ke through hoti hai.
+
+Ek object dusre object se properties aur methods inherit karta hai via prototype.
+
+---
+
+## 🔵 English Explanation
+
+Prototypal inheritance is a mechanism where objects inherit properties and methods from another object through the prototype.
+
+---
+
+## 🎯 Interview Answer
+
+Prototypal inheritance allows objects to inherit properties and methods from other objects using the prototype chain.
+```
+
+---
+
+```markdown
+# 7️⃣ What is Prototype Chain?
+
+## 🟢 Hinglish Explanation
+
+Jab hum kisi object ki property access karte hain:
+
+1. Pehle object me check hota hai  
+2. Phir uske prototype me  
+3. Phir uske prototype ke prototype me  
+
+Ye chain jab tak null na mil jaye continue hoti hai.
+
+Is process ko prototype chain kehte hain.
+
+---
+
+## 🔵 English Explanation
+
+When accessing a property:
+
+1. JavaScript checks the object  
+2. Then its prototype  
+3. Then the prototype’s prototype  
+
+This chain continues until null is reached.
+
+This is called the prototype chain.
+
+---
+
+## 🎯 Interview Answer
+
+The prototype chain is the mechanism by which JavaScript looks up properties in an object and its prototypes until null is reached.
+```
+
+---
+
+```markdown
+# 8️⃣ What is __proto__?
+
+## 🟢 Hinglish Explanation
+
+__proto__ ek internal reference hota hai jo object ke prototype ko point karta hai.
+
+Example:
+
+obj.__proto__
+
+Ye object ka actual prototype reference hota hai.
+
+---
+
+## 🔵 English Explanation
+
+__proto__ is an internal property that references the prototype of an object.
+
+It points to the object’s prototype.
+
+---
+
+## 🎯 Interview Answer
+
+__proto__ is an internal property that references an object’s prototype.
+```
+
+---
+
+```markdown
+# 9️⃣ Difference between Classical and Prototypal Inheritance
+
+## 🟢 Hinglish Explanation
+
+### 🔹 Classical Inheritance
+- Classes based hota hai
+- Languages like Java, C++
+
+### 🔹 Prototypal Inheritance
+- Objects directly objects se inherit karte hain
+- JavaScript me use hota hai
+
+---
+
+## 🔵 English Explanation
+
+### 🔹 Classical Inheritance
+- Based on classes
+- Used in languages like Java and C++
+
+### 🔹 Prototypal Inheritance
+- Objects inherit directly from other objects
+- Used in JavaScript
+
+---
+
+## 🎯 Interview Answer
+
+Classical inheritance is class-based, while prototypal inheritance allows objects to inherit directly from other objects.
+```
+
+---
+
+```markdown
+# 🔟 What is Object Destructuring?
+
+## 🟢 Hinglish Explanation
+
+Object destructuring ES6 feature hai.
+
+Isse hum object ki properties ko directly variables me extract kar sakte hain.
+
+Example:
+
+const person = { name: "Sumit", age: 23 };
+
+const { name, age } = person;
+
+Ab name aur age direct variables ban gaye.
+
+---
+
+## 🔵 English Explanation
+
+Object destructuring is an ES6 feature that allows extracting properties from objects into variables.
+
+Example:
+
+const { name, age } = person;
+
+---
+
+## 🎯 Interview Answer
+
+Object destructuring is a feature in JavaScript that allows extracting object properties into individual variables using a concise syntax.
+```
+
+
+```markdown
+# 1️⃣ What is Asynchronous JavaScript?
+
+## 🟢 Hinglish Explanation
+
+Asynchronous JavaScript ka matlab hai:
+
+JavaScript ek time par ek hi kaam karti hai (single-threaded),  
+lekin kuch tasks background me chal sakte hain bina main thread ko block kiye.
+
+Example:
+- API call
+- setTimeout
+- Database request
+
+Iska benefit:
+UI freeze nahi hota.
+
+---
+
+## 🔄 Workflow (Step by Step)
+
+1. Code Call Stack me execute hota hai.
+2. Async task (jaise setTimeout / fetch) Web APIs ko de diya jata hai.
+3. Jab task complete hota hai → callback Queue me chala jata hai.
+4. Event Loop check karta hai:
+   - Agar Call Stack empty hai → callback ko stack me push karta hai.
+5. Callback execute hota hai.
+
+---
+
+## 🔵 English Explanation
+
+Asynchronous JavaScript allows long-running tasks to execute in the background without blocking the main thread.
+
+Examples:
+- API calls
+- Timers
+- File operations
+
+This prevents the UI from freezing.
+
+---
+
+## 🎯 Interview Answer
+
+Asynchronous JavaScript allows non-blocking execution of tasks like API calls and timers using the event loop mechanism.
+```
+
+---
+
+```markdown
+# 2️⃣ What is the Event Loop?
+
+## 🟢 Hinglish Explanation
+
+Event Loop ek mechanism hai jo:
+
+- Call Stack
+- Callback Queue
+- Microtask Queue
+
+ko manage karta hai.
+
+Ye continuously check karta hai:
+👉 Kya Call Stack empty hai?
+👉 Agar haan, to Queue se task uthao aur execute karo.
+
+---
+
+## 🔄 Workflow
+
+1. Call Stack me synchronous code execute hota hai.
+2. Async tasks Web APIs me jate hain.
+3. Complete hone ke baad:
+   - Promises → Microtask Queue
+   - setTimeout → Macrotask Queue
+4. Event Loop:
+   - Pehle Microtask Queue execute karta hai.
+   - Phir Macrotask Queue.
+
+---
+
+## 🔵 English Explanation
+
+The event loop is a mechanism that manages the execution of code, handling the call stack and task queues.
+
+It ensures asynchronous callbacks are executed when the call stack becomes empty.
+
+---
+
+## 🎯 Interview Answer
+
+The event loop continuously checks if the call stack is empty and moves tasks from the microtask or macrotask queue to the stack for execution.
+```
+
+---
+
+```markdown
+# 3️⃣ Difference between Microtask and Macrotask
+
+## 🟢 Hinglish Explanation
+
+### 🔹 Microtask Queue
+- Promise.then
+- catch
+- finally
+- queueMicrotask
+
+### 🔹 Macrotask Queue
+- setTimeout
+- setInterval
+- setImmediate
+
+🔥 Important:
+Microtask queue hamesha pehle execute hoti hai.
+
+---
+
+## 🔵 English Explanation
+
+### 🔹 Microtasks
+- Promise callbacks
+- queueMicrotask
+
+### 🔹 Macrotasks
+- setTimeout
+- setInterval
+
+Microtasks are executed before macrotasks.
+
+---
+
+## 🎯 Interview Answer
+
+Microtasks (like Promises) are executed before macrotasks (like setTimeout) in the event loop cycle.
+```
+
+---
+
+```markdown
+# 4️⃣ What are Promises?
+
+## 🟢 Hinglish Explanation
+
+Promise ek object hai jo future me complete hone wale async operation ka result represent karta hai.
+
+Example:
+
+fetch(url)
+  .then(res => res.json())
+  .catch(err => console.log(err));
+
+---
+
+## 🔵 English Explanation
+
+A Promise is an object that represents the eventual completion or failure of an asynchronous operation.
+
+---
+
+## 🎯 Interview Answer
+
+A Promise is an object that represents the future result of an asynchronous operation.
+```
+
+---
+
+```markdown
+# 5️⃣ What are Promise States?
+
+## 🟢 Hinglish Explanation
+
+Promise ke 3 states hote hain:
+
+1. Pending → Abhi complete nahi hua
+2. Fulfilled → Successfully complete
+3. Rejected → Error aaya
+
+---
+
+## 🔵 English Explanation
+
+A Promise has three states:
+
+- Pending
+- Fulfilled
+- Rejected
+
+---
+
+## 🎯 Interview Answer
+
+A Promise can be pending, fulfilled, or rejected depending on the outcome of the asynchronous operation.
+```
+
+---
+
+```markdown
+# 6️⃣ What is Promise Chaining?
+
+## 🟢 Hinglish Explanation
+
+Jab multiple .then() ek ke baad ek use karte hain to usse promise chaining kehte hain.
+
+Example:
+
+fetch(url)
+  .then(res => res.json())
+  .then(data => console.log(data))
+  .catch(err => console.log(err));
+
+Har .then previous ka result use karta hai.
+
+---
+
+## 🔵 English Explanation
+
+Promise chaining is attaching multiple .then() handlers where each one processes the result of the previous promise.
+
+---
+
+## 🎯 Interview Answer
+
+Promise chaining allows sequential execution of asynchronous operations using multiple .then() methods.
+```
+
+---
+
+```markdown
+# 7️⃣ What is async / await?
+
+## 🟢 Hinglish Explanation
+
+async/await promise ka cleaner syntax hai.
+
+- async function hamesha promise return karta hai.
+- await promise resolve hone ka wait karta hai.
+
+Example:
+
+async function getData() {
+  const res = await fetch(url);
+  const data = await res.json();
+  console.log(data);
+}
+
+---
+
+## 🔵 English Explanation
+
+async/await is syntactic sugar over Promises.
+
+- async makes a function return a Promise.
+- await pauses execution until the Promise resolves.
+
+---
+
+## 🎯 Interview Answer
+
+async/await is a cleaner way to handle Promises, allowing asynchronous code to look synchronous.
+```
+
+---
+
+```markdown
+# 8️⃣ How does await work internally?
+
+## 🟢 Hinglish Explanation
+
+Internally:
+
+1. await promise ko wait karta hai.
+2. Function pause hota hai.
+3. Promise resolve hone ke baad:
+   - Result Microtask Queue me jata hai.
+4. Event Loop result ko Call Stack me push karta hai.
+
+Note:
+Ye thread block nahi karta, sirf async function pause karta hai.
+
+---
+
+## 🔵 English Explanation
+
+Internally, await pauses the async function until the Promise resolves.
+
+The resolved value is handled via the microtask queue and executed when the call stack is empty.
+
+---
+
+## 🎯 Interview Answer
+
+Await pauses the execution of an async function until the Promise resolves, using the microtask queue without blocking the main thread.
+```
+
+---
+
+```markdown
+# 9️⃣ Difference between Promise and async/await
+
+## 🟢 Hinglish Explanation
+
+### 🔹 Promise
+- .then() chaining
+- Thoda complex lag sakta hai
+
+### 🔹 async/await
+- Cleaner syntax
+- Easy to read
+- Synchronous jaisa lagta hai
+
+Internally dono same mechanism use karte hain.
+
+---
+
+## 🔵 English Explanation
+
+Promises use .then() chaining, while async/await provides a cleaner and more readable syntax.
+
+Internally, async/await is built on top of Promises.
+
+---
+
+## 🎯 Interview Answer
+
+async/await is syntactic sugar over Promises that improves readability and error handling.
+```
+
+---
+
+```markdown
+# 🔟 What is setTimeout?
+
+## 🟢 Hinglish Explanation
+
+setTimeout ek timer function hai jo specified delay ke baad function execute karta hai.
+
+Example:
+
+setTimeout(() => {
+  console.log("Hello");
+}, 2000);
+
+2 second baad execute hoga.
+
+---
+
+## 🔵 English Explanation
+
+setTimeout is a timer function that executes a function after a specified delay.
+
+---
+
+## 🎯 Interview Answer
+
+setTimeout schedules a function to execute after a specified delay and is handled as a macrotask.
+```
+
+---
+
+```markdown
+# 1️⃣1️⃣ What is setInterval?
+
+## 🟢 Hinglish Explanation
+
+setInterval repeatedly function ko fixed time interval me execute karta hai.
+
+Example:
+
+setInterval(() => {
+  console.log("Running");
+}, 1000);
+
+Har 1 second me run karega.
+
+---
+
+## 🔵 English Explanation
+
+setInterval repeatedly executes a function at a fixed time interval.
+
+---
+
+## 🎯 Interview Answer
+
+setInterval executes a function repeatedly at specified time intervals until it is cleared.
+```
+
+
+```markdown
+# 1️⃣ Does setTimeout(0) execute immediately?
+
+## 🟢 Hinglish Explanation
+
+Nahi, `setTimeout(0)` immediately execute nahi hota.
+
+Even agar delay 0 ho:
+- Ye **Call Stack** me direct nahi jata
+- Pehle **Web API** me register hota hai
+- Fir **Macrotask Queue** me jata hai
+- Event Loop tabhi execute karega jab Call Stack empty ho
+
+Isliye ye synchronous code ke baad hi run hota hai.
+
+---
+
+## 🔄 Workflow
+
+1. setTimeout Call Stack me aata hai.
+2. Browser Web API ko timer de diya jata hai.
+3. Timer complete → callback Macrotask Queue me jata hai.
+4. Event Loop check karta hai:
+   - Call Stack empty?
+   - Agar haan → callback stack me push hota hai.
+5. Callback execute hota hai.
+
+---
+
+## 🔵 English Explanation
+
+No, `setTimeout(0)` does not execute immediately.
+
+Even with 0 delay:
+- It is registered in Web APIs
+- Then moved to the Macrotask Queue
+- Executed only when the Call Stack is empty
+
+It always runs after synchronous code.
+
+---
+
+## 🎯 Interview Answer
+
+No, `setTimeout(0)` does not execute immediately. It is placed in the macrotask queue and runs only after the call stack becomes empty.
+```
+
+---
+
+```markdown
+# 2️⃣ What is Callback Hell?
+
+## 🟢 Hinglish Explanation
+
+Jab multiple callbacks ek ke andar ek nested hote hain, code unreadable ho jata hai.
+
+Example:
+
+doSomething(function() {
+  doSomethingElse(function() {
+    doAnotherThing(function() {
+      ...
+    });
+  });
+});
+
+Isse:
+- Code messy ho jata hai
+- Debug karna difficult ho jata hai
+
+Is problem ko callback hell kehte hain.
+
+---
+
+## 🔵 English Explanation
+
+Callback hell occurs when multiple nested callbacks make the code difficult to read and maintain.
+
+It reduces readability and increases complexity.
+
+---
+
+## 🎯 Interview Answer
+
+Callback hell refers to deeply nested callback functions that make code hard to read and maintain.
+```
+
+---
+
+```markdown
+# 3️⃣ How do you handle errors in async/await?
+
+## 🟢 Hinglish Explanation
+
+async/await me error handle karne ke liye:
+
+### 🔹 try...catch use karte hain
+
+Example:
+
+async function getData() {
+  try {
+    const res = await fetch(url);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+---
+
+## 🔄 Workflow
+
+1. Async function start hota hai.
+2. await promise resolve hone ka wait karta hai.
+3. Agar reject hua:
+   - Error throw hota hai.
+4. Control catch block me chala jata hai.
+
+---
+
+## 🔵 English Explanation
+
+Errors in async/await are handled using try...catch blocks.
+
+If the awaited promise rejects, control moves to the catch block.
+
+---
+
+## 🎯 Interview Answer
+
+Errors in async/await are handled using try and catch blocks, which catch rejected promises.
+```
+
+---
+
+```markdown
+# 4️⃣ What is Microtask Starvation?
+
+## 🟢 Hinglish Explanation
+
+Microtask starvation tab hota hai jab:
+
+Microtask Queue (Promises) continuously fill hoti rahe  
+aur Macrotask Queue ko execute hone ka chance na mile.
+
+Kyuki:
+Event Loop hamesha pehle Microtask Queue empty karta hai.
+
+---
+
+## 🔄 Workflow
+
+1. Promise resolve hota hai → Microtask Queue me jata hai.
+2. Microtask ke andar fir ek Promise resolve ho jata hai.
+3. Ye process repeat hota rehta hai.
+4. Macrotask Queue (setTimeout) wait karta rehta hai.
+
+---
+
+## 🔵 English Explanation
+
+Microtask starvation occurs when the microtask queue keeps getting filled continuously, preventing macrotasks from executing.
+
+Since the event loop always prioritizes microtasks, macrotasks may get delayed indefinitely.
+
+---
+
+## 🎯 Interview Answer
+
+Microtask starvation happens when continuous microtasks prevent macrotasks from executing due to event loop prioritization.
+```
+
+---
+
+```markdown
+# 5️⃣ What is JavaScript Execution Context?
+
+## 🟢 Hinglish Explanation
+
+Execution Context wo environment hai jisme code execute hota hai.
+
+Types:
+- Global Execution Context
+- Function Execution Context
+
+Har execution context me hota hai:
+- Variable Environment
+- Scope Chain
+- this value
+
+---
+
+## 🔄 Workflow
+
+1. Global Execution Context create hota hai.
+2. Memory phase:
+   - Variables undefined assign hote hain.
+   - Functions memory me store hote hain.
+3. Execution phase:
+   - Code line-by-line run hota hai.
+4. Function call hota hai → new execution context create hota hai.
+
+---
+
+## 🔵 English Explanation
+
+An execution context is the environment where JavaScript code is executed.
+
+Each execution context has:
+- Variable environment
+- Scope chain
+- this binding
+
+---
+
+## 🎯 Interview Answer
+
+Execution context is the environment in which JavaScript code runs, containing variables, scope chain, and this binding.
+```
+
+---
+
+```markdown
+# 6️⃣ What is Call Stack?
+
+## 🟢 Hinglish Explanation
+
+Call Stack ek data structure hai jo function calls track karta hai.
+
+- Function call → stack me push
+- Function complete → stack se pop
+
+---
+
+## 🔄 Workflow
+
+1. Global context stack me push hota hai.
+2. Function call → new context push hota hai.
+3. Function complete → pop hota hai.
+4. Stack empty hone tak process chalta hai.
+
+---
+
+## 🔵 English Explanation
+
+The call stack is a data structure that keeps track of function calls.
+
+Functions are pushed when called and popped when completed.
+
+---
+
+## 🎯 Interview Answer
+
+The call stack is a LIFO data structure that manages function execution in JavaScript.
+```
+
+---
+
+```markdown
+# 7️⃣ What is Memory Heap?
+
+## 🟢 Hinglish Explanation
+
+Memory Heap ek unstructured memory area hai jaha:
+
+- Objects
+- Arrays
+- Functions
+
+store hote hain.
+
+---
+
+## 🔵 English Explanation
+
+The memory heap is an unstructured memory region where objects and reference data are stored.
+
+---
+
+## 🎯 Interview Answer
+
+The memory heap is where JavaScript stores objects and dynamically allocated data.
+```
+
+---
+
+```markdown
+# 8️⃣ What is Garbage Collection?
+
+## 🟢 Hinglish Explanation
+
+Garbage Collection automatic memory management system hai.
+
+Jo variables ya objects accessible nahi hote unko memory se remove kar deta hai.
+
+---
+
+## 🔄 Workflow
+
+1. Object create hota hai → Heap me store hota hai.
+2. Agar koi reference nahi bacha:
+   - Mark-and-sweep algorithm run hota hai.
+3. Unused memory free kar di jati hai.
+
+---
+
+## 🔵 English Explanation
+
+Garbage collection is an automatic memory management process that removes unused objects from memory.
+
+It typically uses the mark-and-sweep algorithm.
+
+---
+
+## 🎯 Interview Answer
+
+Garbage collection automatically frees memory by removing objects that are no longer referenced.
+```
+
+---
+
+```markdown
+# 9️⃣ What is Debouncing?
+
+## 🟢 Hinglish Explanation
+
+Debouncing me function tab execute hota hai jab user action ruk jata hai.
+
+Example:
+Search input me typing ke baad 500ms rukne par API call.
+
+---
+
+## 🔄 Workflow
+
+1. User event trigger karta hai.
+2. Timer start hota hai.
+3. Agar fir se event trigger hua:
+   - Previous timer cancel.
+4. Jab user ruk jata hai:
+   - Function execute hota hai.
+
+---
+
+## 🔵 English Explanation
+
+Debouncing ensures that a function executes only after a specified delay once the user stops triggering the event.
+
+---
+
+## 🎯 Interview Answer
+
+Debouncing delays function execution until after a specified time has passed since the last event trigger.
+```
+
+---
+
+```markdown
+# 🔟 What is Throttling?
+
+## 🟢 Hinglish Explanation
+
+Throttling me function fixed interval me ek hi baar execute hota hai.
+
+Chahe user kitni baar event trigger kare.
+
+---
+
+## 🔄 Workflow
+
+1. Event trigger hota hai.
+2. Function execute hota hai.
+3. Next execution tabhi allowed hoga jab interval complete ho jaye.
+
+---
+
+## 🔵 English Explanation
+
+Throttling ensures a function executes at most once in a specified time interval.
+
+---
+
+## 🎯 Interview Answer
+
+Throttling limits function execution to once per specified time interval.
+```
+
+---
+
+```markdown
+# 1️⃣1️⃣ Difference between Debouncing and Throttling
+
+## 🟢 Hinglish Explanation
+
+### 🔹 Debouncing
+- Execution delay karta hai.
+- Last event ke baad run hota hai.
+
+### 🔹 Throttling
+- Fixed interval me run hota hai.
+- Continuous events me bhi limited execution.
+
+Example:
+- Search input → Debounce
+- Scroll event → Throttle
+
+---
+
+## 🔵 English Explanation
+
+### 🔹 Debouncing
+- Delays execution until events stop.
+
+### 🔹 Throttling
+- Executes at fixed intervals.
+
+Debouncing waits for inactivity, while throttling controls execution frequency.
+
+---
+
+## 🎯 Interview Answer
+
+Debouncing delays execution until events stop, while throttling limits execution frequency within a time interval.
+```
+
+
+```markdown
+# 1️⃣ What is call, apply, and bind?
+
+## 🟢 Hinglish Explanation
+
+`call`, `apply`, aur `bind` methods ka use hota hai **this keyword ko manually control karne ke liye**.
+
+### 🔹 call()
+- Function ko immediately invoke karta hai.
+- Arguments comma separated pass hote hain.
+
+Example:
+function greet(city) {
+  console.log(this.name + " from " + city);
+}
+
+greet.call({ name: "Sumit" }, "Gwalior");
+
+---
+
+### 🔹 apply()
+- call jaisa hi hai.
+- Difference: arguments array me pass hote hain.
+
+greet.apply({ name: "Sumit" }, ["Gwalior"]);
+
+---
+
+### 🔹 bind()
+- Function ko immediately execute nahi karta.
+- Naya function return karta hai with fixed `this`.
+
+const newFunc = greet.bind({ name: "Sumit" });
+newFunc("Gwalior");
+
+---
+
+## 🔵 English Explanation
+
+`call`, `apply`, and `bind` are used to explicitly control the value of `this`.
+
+- `call()` → Invokes function immediately with arguments separated by commas.
+- `apply()` → Invokes function immediately with arguments passed as an array.
+- `bind()` → Returns a new function with permanently bound `this`.
+
+---
+
+## 🎯 Interview Answer
+
+call and apply immediately invoke a function with a specified `this` context, while bind returns a new function with a fixed `this` value.
+```
+
+---
+
+```markdown
+# 2️⃣ How does bind work internally?
+
+## 🟢 Hinglish Explanation
+
+Internally `bind()`:
+
+1. Ek naya function create karta hai.
+2. Original function ko wrap karta hai.
+3. `this` ko permanently set karta hai.
+4. Arguments ko optionally pre-set karta hai.
+
+Simplified internal logic:
+
+Function.prototype.myBind = function(context) {
+  const fn = this;
+  return function(...args) {
+    return fn.apply(context, args);
+  };
+};
+
+---
+
+## 🔄 Workflow
+
+1. bind call hota hai.
+2. New wrapper function return hota hai.
+3. Jab wrapper call hota hai:
+   - apply ke through original function execute hota hai.
+   - Fixed `this` use hota hai.
+
+---
+
+## 🔵 English Explanation
+
+Internally, bind creates a new function that wraps the original function and calls it using apply with a fixed context.
+
+It stores the provided `this` and optionally preset arguments.
+
+---
+
+## 🎯 Interview Answer
+
+Bind internally returns a new wrapper function that calls the original function using apply with a fixed `this` context.
+```
+
+---
+
+```markdown
+# 3️⃣ What are Polyfills?
+
+## 🟢 Hinglish Explanation
+
+Polyfill ek custom implementation hoti hai kisi modern JavaScript feature ki,  
+jo old browsers me support nahi hoti.
+
+Example:
+Agar browser `Array.prototype.includes` support nahi karta,  
+to hum manually uska function bana sakte hain.
+
+---
+
+## 🔵 English Explanation
+
+A polyfill is a custom implementation of a modern JavaScript feature that is not supported in older browsers.
+
+It ensures backward compatibility.
+
+---
+
+## 🎯 Interview Answer
+
+A polyfill is a piece of code that replicates modern JavaScript functionality in environments where it is not natively supported.
+```
+
+---
+
+```markdown
+# 4️⃣ Explain JavaScript Event Loop with a Real Example
+
+## 🟢 Hinglish Explanation
+
+Example:
+
+console.log("Start");
+
+setTimeout(() => {
+  console.log("Timeout");
+}, 0);
+
+Promise.resolve().then(() => {
+  console.log("Promise");
+});
+
+console.log("End");
+
+### Output:
+Start  
+End  
+Promise  
+Timeout  
+
+---
+
+## 🔄 Workflow
+
+1. "Start" → Call Stack execute.
+2. setTimeout → Web API me jata hai.
+3. Promise → Microtask Queue me jata hai.
+4. "End" → Execute.
+5. Call Stack empty.
+6. Event Loop:
+   - Pehle Microtask Queue execute → "Promise"
+   - Fir Macrotask Queue execute → "Timeout"
+
+---
+
+## 🔵 English Explanation
+
+The event loop first executes synchronous code, then processes microtasks (Promises), and finally macrotasks (setTimeout).
+
+Microtasks always have higher priority.
+
+---
+
+## 🎯 Interview Answer
+
+In the event loop, synchronous code runs first, then microtasks like Promises, and finally macrotasks like setTimeout.
+```
+
+---
+
+```markdown
+# 5️⃣ Why does console.log inside setTimeout behave differently in loops?
+
+## 🟢 Hinglish Explanation
+
+Example:
+
+for (var i = 0; i < 3; i++) {
+  setTimeout(() => console.log(i), 0);
+}
+
+Output:
+3  
+3  
+3  
+
+Reason:
+- `var` function-scoped hota hai.
+- Loop complete hone tak i = 3 ho jata hai.
+- setTimeout baad me execute hota hai.
+
+Agar `let` use kare:
+
+for (let i = 0; i < 3; i++) {
+  setTimeout(() => console.log(i), 0);
+}
+
+Output:
+0  
+1  
+2  
+
+Kyuki `let` block-scoped hai.
+
+---
+
+## 🔵 English Explanation
+
+When using `var`, the loop variable is function-scoped, so all callbacks reference the same variable.
+
+By the time setTimeout executes, the loop has completed.
+
+Using `let` creates a new binding for each iteration.
+
+---
+
+## 🎯 Interview Answer
+
+This happens because var is function-scoped and all callbacks share the same variable reference, while let creates block-scoped bindings for each iteration.
+```
+
+---
+
+```markdown
+# 6️⃣ Why are Promises faster than setTimeout?
+
+## 🟢 Hinglish Explanation
+
+Promises faster nahi hote logically,  
+lekin execution priority high hoti hai.
+
+- Promises → Microtask Queue
+- setTimeout → Macrotask Queue
+
+Event Loop pehle Microtask Queue execute karta hai.
+
+Isliye Promise callback pehle run hota hai.
+
+---
+
+## 🔵 English Explanation
+
+Promises are not faster, but they are executed earlier because they are placed in the microtask queue, which has higher priority than the macrotask queue used by setTimeout.
+
+---
+
+## 🎯 Interview Answer
+
+Promises are executed before setTimeout because microtasks are processed before macrotasks in the event loop.
+```
+
+---
+
+```markdown
+# 7️⃣ How does JavaScript handle concurrency with single thread?
+
+## 🟢 Hinglish Explanation
+
+JavaScript single-threaded hai,  
+lekin concurrency handle karta hai:
+
+- Web APIs
+- Callback Queue
+- Event Loop
+
+Heavy tasks background me browser handle karta hai.
+
+---
+
+## 🔄 Workflow
+
+1. Main thread synchronous code execute karta hai.
+2. Async task Web APIs ko diya jata hai.
+3. Complete hone ke baad queue me jata hai.
+4. Event Loop manage karta hai execution.
+
+---
+
+## 🔵 English Explanation
+
+JavaScript handles concurrency using the event loop, Web APIs, and task queues, allowing asynchronous operations without blocking the main thread.
+
+---
+
+## 🎯 Interview Answer
+
+JavaScript handles concurrency through the event loop mechanism, delegating asynchronous tasks to Web APIs and executing them when the call stack is empty.
+```
+
+---
+
+```markdown
+# 8️⃣ Explain an Output-Based Question (Promise + async/await + setTimeout)
+
+## 🟢 Hinglish Explanation
+
+Example:
+
+async function test() {
+  console.log("1");
+
+  setTimeout(() => console.log("2"), 0);
+
+  await Promise.resolve();
+
+  console.log("3");
+}
+
+test();
+console.log("4");
+
+### Output:
+1  
+4  
+3  
+2  
+
+---
+
+## 🔄 Workflow
+
+1. test() call → "1" print.
+2. setTimeout → Macrotask Queue.
+3. await Promise.resolve() → Microtask Queue.
+4. test function pause hota hai.
+5. "4" print (synchronous).
+6. Microtask execute → "3".
+7. Macrotask execute → "2".
+
+---
+
+## 🔵 English Explanation
+
+Synchronous logs execute first, then microtasks from await, and finally macrotasks from setTimeout.
+
+Order:
+1 → 4 → 3 → 2
+
+---
+
+## 🎯 Interview Answer
+
+In such cases, synchronous code runs first, then microtasks from Promises or await, and finally macrotasks like setTimeout, resulting in the order 1, 4, 3, 2.
+```
