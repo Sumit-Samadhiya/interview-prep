@@ -1,37 +1,1212 @@
-# Detailed Interview Answers for JavaScript Questions
+### 21. What is a Pure Function?
+- **Question:** Explain the concept of pure functions in JavaScript.
+- **Workflow:** 
+  1. Function receives input parameters
+  2. Performs computation based only on those inputs
+  3. Returns output without modifying external state
+  4. Same inputs always produce same outputs
+- **Real-Life Example:** A calculator function `add(2, 3)` always returns `5`. It doesn't depend on external variables or modify anything outside its scope.
+- **Hinglish Explanation:** Pure function voh hoti hai jismein output sirf input par depend karta hai aur koi side effects nahi hote. Matlab agar aap same input doge to hamesha same output milega aur ye function bahar ki kisi bhi cheez ko change nahi karega.
+- **English Translation:** A pure function is one where the output only depends on the input and has no side effects. This means given the same inputs, it will always return the same output without modifying anything external.
+- **Interview Answer:** A pure function is a function that always returns the same output for the same input and doesn't cause any observable side effects like modifying global variables, mutating input parameters, or performing I/O operations. Pure functions are deterministic, predictable, and easier to test. For example, `const add = (a, b) => a + b` is pure because it only uses its parameters and doesn't modify external state. Pure functions are fundamental in functional programming and help create maintainable, testable code.
 
-## Question 1: (Your first question here)
-### Workflow:
-- Step 1...
-- Step 2...
+---
 
-### Real-Life Example:
-- Example scenario...
+### 22. What are Closures in JavaScript?
+- **Question:** What is a closure, and how does it work?
+- **Workflow:**
+  1. Outer function creates a scope with local variables
+  2. Inner function is defined within outer function
+  3. Inner function has access to outer function's variables
+  4. Outer function returns the inner function
+  5. Even after outer function completes, inner function retains access to outer variables
+- **Real-Life Example:** A counter function that remembers its count value across multiple calls, like a bank account that remembers its balance.
+- **Hinglish Explanation:** Closure voh hoti hai jo outer function ki variables ko yaad rakhti hai aur un tak access kar sakti hai even jab outer function execute ho chuka ho. Ye ek tarah se memory create karta hai jo function ke saath rehti hai.
+- **English Translation:** A closure is a function that remembers its outer variables and can access them even after the outer function has finished executing. It creates a persistent memory that stays with the function.
+- **Interview Answer:** A closure is created when an inner function has access to variables from its outer (enclosing) function's scope, even after the outer function has finished execution. Closures allow functions to maintain state and create private variables. For example:
+```javascript
+function createCounter() {
+  let count = 0;
+  return function() {
+    count++;
+    return count;
+  }
+}
+const counter = createCounter();
+console.log(counter()); // 1
+console.log(counter()); // 2
+```
+Here, the inner function "closes over" the `count` variable, maintaining access to it. Closures are essential for data encapsulation, creating private variables, callbacks, and event handlers in JavaScript.
 
-### Hinglish Explanation:
-- Explanation in Hinglish...
+---
 
-### English Translation:
-- Translation in Professional English...
+### 23. What is Currying?
+- **Question:** Explain currying in JavaScript.
+- **Workflow:**
+  1. Take a function with multiple arguments
+  2. Transform it into a sequence of functions
+  3. Each function takes one argument
+  4. Each function returns another function until all arguments are received
+  5. Final function executes with all collected arguments
+- **Real-Life Example:** Instead of ordering a complete meal at once `order(pizza, drink, dessert)`, you order step by step: `order(pizza)(drink)(dessert)`. 
+- **Hinglish Explanation:** Currying ek function ko aise badalta hai ki jo multiple arguments leta hai, use single argument wale function ki series mein badal deta hai. Matlab ek hi baar mein saare arguments dene ki jagah, ek ek karke arguments pass karte hain.
+- **English Translation:** Currying transforms a function that takes multiple arguments into a sequence of single-argument functions. Instead of passing all arguments at once, you pass them one at a time.
+- **Interview Answer:** Currying is a functional programming technique where a function with multiple arguments is transformed into a sequence of functions, each taking a single argument. It enables partial application and function composition. Example:
+```javascript
+// Normal function
+function add(a, b, c) {
+  return a + b + c;
+}
 
-### Detailed Interview Answer:
-- Comprehensive answer with code example...
+// Curried version
+function curriedAdd(a) {
+  return function(b) {
+    return function(c) {
+      return a + b + c;
+    }
+  }
+}
+console.log(curriedAdd(1)(2)(3)); // 6
+```
+Currying is useful for creating reusable function templates, partial application of functions, and making code more modular and flexible. It's commonly used in functional programming libraries like Ramda and Lodash.
 
-## Question 2: (Your second question here)
-### Workflow:
-- Step 1...
-- Step 2...
+---
 
-### Real-Life Example:
-- Example scenario...
+### 24. What is Function Chaining?
+- **Question:** Describe function chaining in JavaScript.
+- **Workflow:**
+  1. Method performs an operation on an object
+  2. Method returns the same object (or `this`)
+  3. Next method is called on the returned object
+  4. Chain continues until final result is needed
+- **Real-Life Example:** jQuery's `$('#element').hide().fadeIn().addClass('active')` or array methods like `arr.filter().map().reduce()`. 
+- **Hinglish Explanation:** Function chaining ki madad se aap sequentially methods ko call kar sakte hain same object par. Har method object ko return karta hai to aap usi par next method call kar sakte hain, jaise ek chain ki tarah.
+- **English Translation:** Function chaining allows methods to be called on the same object in sequence. Each method returns the object so you can call the next method on it, forming a chain.
+- **Interview Answer:** Function chaining is a programming pattern where multiple method calls are chained together in a single statement. Each method operates on the result of the previous method and returns an object (typically `this`) to enable the next method call. Example:
+```javascript
+class Calculator {
+  constructor(value = 0) {
+    this.value = value;
+  }
+  add(n) {
+    this.value += n;
+    return this;
+  }
+  multiply(n) {
+    this.value *= n;
+    return this;
+  }
+}
+const result = new Calculator(5).add(3).multiply(2); // 16
+```
+Function chaining improves code readability, reduces the need for intermediate variables, and makes code more expressive and fluent. It's widely used in libraries like jQuery, Lodash, and modern JavaScript array methods.
 
-### Hinglish Explanation:
-- Explanation in Hinglish...
+---
 
-### English Translation:
-- Translation in Professional English...
+### 25. What is Recursion?
+- **Question:** Can you explain recursion in JavaScript?
+- **Workflow:**
+  1. Function is called with initial parameters
+  2. Function checks base case (stopping condition)
+  3. If base case met, return result
+  4. If not, function calls itself with modified parameters
+  5. Each recursive call adds to call stack
+  6. Stack unwinds as base cases are reached
+- **Real-Life Example:** Calculating factorial: `factorial(5) = 5 * factorial(4)`, which continues until `factorial(1) = 1` (base case).
+- **Hinglish Explanation:** Recursion tab hoti hai jab ek function khud ko call karta hai chhote chhote problems solve karne ke liye. Har call problem ko chhota karta hai jab tak base condition nahi mil jati.
+- **English Translation:** Recursion occurs when a function calls itself to solve smaller instances of the same problem. Each call reduces the problem size until a base condition is reached.
+- **Interview Answer:** Recursion is a programming technique where a function calls itself to solve a problem by breaking it down into smaller, similar subproblems. Every recursive function needs a base case (stopping condition) to prevent infinite recursion. Example:
+```javascript
+function factorial(n) {
+  // Base case
+  if (n === 0 || n === 1) return 1;
+  // Recursive case
+  return n * factorial(n - 1);
+}
+console.log(factorial(5)); // 120
+```
+Recursion is useful for problems with recursive structure like tree traversal, factorial calculation, Fibonacci sequence, and divide-and-conquer algorithms. However, excessive recursion can cause stack overflow, so iterative solutions or tail-call optimization may be preferred for deep recursion.
 
-### Detailed Interview Answer:
-- Comprehensive answer with code example...
+---
 
-... (Continue for all 70 questions)
+### 26. What are map, filter, and reduce?
+- **Question:** Explain the functionalities of map, filter, and reduce.
+- **Workflow:**
+  - **map**: Iterates through array → applies transformation function → returns new array with transformed elements
+  - **filter**: Iterates through array → applies test function → returns new array with elements that pass test
+  - **reduce**: Iterates through array → accumulates values using reducer function → returns single value
+- **Real-Life Example:** 
+  - `map`: Converting temperatures from Celsius to Fahrenheit
+  - `filter`: Selecting only passing students from a class
+  - `reduce`: Calculating total price of items in shopping cart
+- **Hinglish Explanation:** Ye tino higher-order functions hain jo arrays ko alag tarike se process karte hain. Map har element ko transform karta hai, filter sirf matching elements rakhta hai, aur reduce pure array ko ek single value mein convert karta hai.
+- **English Translation:** These are higher-order functions that process arrays in different ways. Map transforms each element, filter keeps only matching elements, and reduce converts the entire array to a single value.
+- **Interview Answer:** Map, filter, and reduce are fundamental array methods in JavaScript that enable functional programming patterns:
+
+**map()** - Transforms each element and returns a new array of the same length:
+```javascript
+const numbers = [1, 2, 3];
+const doubled = numbers.map(n => n * 2); // [2, 4, 6]
+```
+
+**filter()** - Returns a new array containing only elements that pass a test:
+```javascript
+const ages = [15, 22, 18, 30];
+const adults = ages.filter(age => age >= 18); // [22, 18, 30]
+```
+
+**reduce()** - Reduces an array to a single value by accumulating results:
+```javascript
+const prices = [10, 20, 30];
+const total = prices.reduce((sum, price) => sum + price, 0); // 60
+```
+
+These methods don't mutate the original array, promote immutability, and can be chained together for powerful data transformations.
+
+---
+
+### 27. forEach vs map?
+- **Question:** What is the difference between forEach and map?
+- **Workflow:**
+  - **forEach**: Iterates → executes callback → returns undefined → modifies external state if needed
+  - **map**: Iterates → executes callback → collects return values → returns new array
+- **Real-Life Example:** 
+  - `forEach`: Logging each item to console, sending emails to users
+  - `map`: Converting array of names to uppercase, extracting IDs from objects
+- **Hinglish Explanation:** forEach har element par function execute karta hai lekin nayi array return nahi karta, jabki map naya array banata hai. forEach side effects ke liye use hota hai aur map transformation ke liye.
+- **English Translation:** forEach executes a function on each element but doesn't return a new array, while map creates a new array. forEach is used for side effects and map for transformations.
+- **Interview Answer:** The key differences between forEach and map are:
+
+**forEach:**
+- Executes a callback for each element
+- Returns `undefined`
+- Used for side effects (logging, API calls, DOM manipulation)
+- Cannot be chained
+```javascript
+const nums = [1, 2, 3];
+nums.forEach(n => console.log(n * 2)); // logs: 2, 4, 6
+// Returns: undefined
+```
+
+**map:**
+- Transforms each element
+- Returns a new array with transformed values
+- Used for data transformation
+- Can be chained with other array methods
+```javascript
+const nums = [1, 2, 3];
+const doubled = nums.map(n => n * 2); // [2, 4, 6]
+```
+
+Use `map` when you need to transform data and create a new array. Use `forEach` when you only need to iterate and perform side effects without returning a value.
+
+---
+
+### 28. What is Memoization?
+- **Question:** Describe the concept of memoization.
+- **Workflow:**
+  1. Function is called with arguments
+  2. Check if result for these arguments exists in cache
+  3. If cached, return cached result immediately
+  4. If not cached, compute result
+  5. Store result in cache with arguments as key
+  6. Return computed result
+- **Real-Life Example:** Like a student remembering answers to questions they've solved before instead of recalculating every time.
+- **Hinglish Explanation:** Memoization expensive function calls ke results ko cache karta hai aur wo results firse call par return karta hai jab same inputs aate hain. Isse performance improve hoti hai kyunki same calculation dobara nahi karni padti.
+- **English Translation:** Memoization caches results of expensive function calls and returns cached results for the same inputs. This improves performance by avoiding redundant calculations.
+- **Interview Answer:** Memoization is an optimization technique that caches the results of expensive function calls and returns the cached result when the same inputs occur again. It trades memory for speed by storing computed values. Example:
+```javascript
+function memoize(fn) {
+  const cache = {};
+  return function(...args) {
+    const key = JSON.stringify(args);
+    if (key in cache) {
+      return cache[key];
+    }
+    const result = fn(...args);
+    cache[key] = result;
+    return result;
+  }
+}
+
+const fibonacci = memoize(function(n) {
+  if (n <= 1) return n;
+  return fibonacci(n - 1) + fibonacci(n - 2);
+});
+```
+Memoization dramatically improves performance for recursive functions like Fibonacci, factorial, and expensive computations. It's particularly useful when functions are called repeatedly with the same arguments. However, it increases memory usage and should be used judiciously.
+
+---
+
+### 29. Shallow vs Deep Copy?
+- **Question:** Explain the difference between shallow and deep copy.
+- **Workflow:**
+  - **Shallow Copy**: Copies top-level properties → nested objects share same reference → changes to nested objects affect both copies
+  - **Deep Copy**: Recursively copies all levels → creates independent nested objects → changes don't affect original
+- **Real-Life Example:** 
+  - Shallow: Photocopying a book with bookmarks - the copy has its own pages but bookmarks point to same references
+  - Deep: Photocopying a book and also copying all bookmarked pages separately
+- **Hinglish Explanation:** Shallow copy naya object banata hai par nested objects ka reference leta hai, deep copy recursively nayi copies banata hai. Shallow copy mein nested objects change karne se original bhi change hota hai, deep copy mein nahi.
+- **English Translation:** Shallow copy creates a new object but takes references of nested objects, deep copy recursively creates new copies. In shallow copy, changing nested objects affects the original, in deep copy it doesn't.
+- **Interview Answer:** **Shallow Copy** creates a new object but copies only the first level of properties. Nested objects are copied by reference:
+```javascript
+const original = { name: 'John', address: { city: 'NYC' } };
+const shallow = { ...original };
+shallow.address.city = 'LA';
+console.log(original.address.city); // 'LA' (affected!)
+```
+
+**Deep Copy** creates a completely independent clone including all nested objects:
+```javascript
+const original = { name: 'John', address: { city: 'NYC' } };
+const deep = JSON.parse(JSON.stringify(original));
+deep.address.city = 'LA';
+console.log(original.address.city); // 'NYC' (not affected)
+```
+
+Shallow copy methods: `Object.assign()`, spread operator `{...obj}`, `Array.slice()`
+Deep copy methods: `JSON.parse(JSON.stringify())`, `structuredClone()`, recursive copying, libraries like Lodash's `cloneDeep()`
+
+Note: JSON methods don't work with functions, undefined, symbols, or circular references. `structuredClone()` is the modern recommended approach for deep copying.
+
+---
+
+### 30. What are Objects in JavaScript?
+- **Question:** Describe objects in JavaScript.
+- **Workflow:**
+  1. Objects are created using literals `{}` or constructors
+  2. Properties are defined as key-value pairs
+  3. Values can be primitives, objects, or functions
+  4. Properties are accessed using dot notation or bracket notation
+  5. Objects can inherit from prototypes
+- **Real-Life Example:** A person object with properties like name, age, address, and methods like walk(), talk().
+- **Hinglish Explanation:** JavaScript mein object key-value pairs ka collection hota hai jo complex data banate hain. Ye real-world entities ko represent karte hain jaise person, car, book etc.
+- **English Translation:** An object is a collection of key-value pairs that creates complex data structures. They represent real-world entities like person, car, book etc.
+- **Interview Answer:** Objects in JavaScript are collections of key-value pairs where keys are strings (or Symbols) and values can be any data type including other objects, arrays, or functions. Objects are reference types and are fundamental to JavaScript's object-oriented programming. Example:
+```javascript
+const person = {
+  name: 'John',
+  age: 30,
+  address: {
+    city: 'NYC',
+    country: 'USA'
+  },
+  greet: function() {
+    console.log(`Hi, I'm ${this.name}`);
+  }
+};
+
+person.greet(); // Hi, I'm John
+person.age = 31; // Property modification
+person.job = 'Developer'; // Adding new property
+```
+Objects can be created using object literals, constructor functions, `Object.create()`, or ES6 classes. They support property access via dot notation (`obj.prop`) or bracket notation (`obj['prop']`). Objects are mutable and passed by reference, making them powerful for organizing and structuring data in JavaScript applications.
+
+---
+
+### 31. What is the 'this' keyword?
+- **Question:** Explain the significance of the `this` keyword in JavaScript.
+- **Workflow:**
+  1. `this` value is determined at function call time
+  2. In method calls: `this` refers to the object calling the method
+  3. In regular functions: `this` refers to global object (or undefined in strict mode)
+  4. In arrow functions: `this` is lexically inherited from surrounding scope
+  5. With `call/apply/bind`: `this` is explicitly set
+- **Real-Life Example:** In object method `person.greet()`, `this` refers to `person` object, like saying "I" in a conversation refers to the speaker.
+- **Hinglish Explanation:** this keyword wo object ko refer karta hai jo function ko execute kar raha hai. Ye context-dependent hai matlab different situations mein different objects ko point karta hai.
+- **English Translation:** The `this` keyword refers to the object currently executing the function. It's context-dependent, meaning it points to different objects in different situations.
+- **Interview Answer:** The `this` keyword refers to the execution context of a function - the object that is currently executing or calling the function. Its value depends on how the function is called:
+
+**1. Method call:**
+```javascript
+const obj = {
+  name: 'John',
+  greet() { console.log(this.name); }
+};
+obj.greet(); // 'John' - this = obj
+```
+
+**2. Regular function:**
+```javascript
+function show() { console.log(this); }
+show(); // Window (browser) or undefined (strict mode)
+```
+
+**3. Arrow function:**
+```javascript
+const obj = {
+  name: 'John',
+  greet: () => console.log(this.name)
+};
+obj.greet(); // undefined - arrow functions don't have own 'this'
+```
+
+**4. Explicit binding:**
+```javascript
+function greet() { console.log(this.name); }
+const person = { name: 'John' };
+greet.call(person); // 'John'
+```
+
+Understanding `this` is crucial for proper context management, especially in event handlers, callbacks, and object-oriented programming.
+
+---
+
+### 32. What is Prototype?
+- **Question:** Can you explain prototypes in JavaScript?
+- **Workflow:**
+  1. Every object has an internal `[[Prototype]]` property
+  2. Prototype is another object from which properties/methods are inherited
+  3. When accessing a property, JavaScript first checks the object itself
+  4. If not found, it checks the object's prototype
+  5. This continues up the prototype chain until found or reaching null
+- **Real-Life Example:** Like inheriting traits from parents - you have your own characteristics plus inherited ones from your family.
+- **Hinglish Explanation:** JavaScript mein har object ka prototype hota hai jisse wo properties aur methods inherit kar sakta hai. Ye ek tarah ka template hai jo objects ko shared functionality provide karta hai.
+- **English Translation:** Every JavaScript object has a prototype from which it can inherit properties and methods. It's like a template that provides shared functionality to objects.
+- **Interview Answer:** A prototype is an object from which other objects inherit properties and methods. Every JavaScript object has an internal `[[Prototype]]` property (accessible via `__proto__` or `Object.getPrototypeOf()`). Prototypes enable inheritance and property sharing without duplicating code. Example:
+```javascript
+function Person(name) {
+  this.name = name;
+}
+
+Person.prototype.greet = function() {
+  console.log(`Hi, I'm ${this.name}`);
+};
+
+const john = new Person('John');
+john.greet(); // Hi, I'm John
+
+console.log(john.__proto__ === Person.prototype); // true
+```
+Every function in JavaScript has a `prototype` property that becomes the prototype of objects created with `new`. Built-in objects like Array, String, Object all have prototypes with methods (e.g., `Array.prototype.map`). Prototypes are memory-efficient because methods are shared among all instances rather than copied to each object.
+
+---
+
+### 33. What is Prototypal Inheritance?
+- **Question:** What do you understand by prototypal inheritance?
+- **Workflow:**
+  1. Object A is created
+  2. Object B is created with Object A as its prototype
+  3. Object B can access its own properties
+  4. Object B can also access Object A's properties via prototype chain
+  5. Changes to Object A's prototype affect all objects inheriting from it
+- **Real-Life Example:** A "Student" object inheriting from "Person" object, getting all Person properties plus Student-specific ones.
+- **Hinglish Explanation:** Prototypal inheritance mein objects seedha dusre objects se inherit kar sakte hain classes ki jagah. JavaScript mein inheritance prototype chain ke through hoti hai.
+- **English Translation:** Prototypal inheritance allows objects to inherit directly from other objects instead of through classes. In JavaScript, inheritance happens through the prototype chain.
+- **Interview Answer:** Prototypal inheritance is JavaScript's inheritance model where objects inherit directly from other objects through the prototype chain, rather than from classes. Unlike classical inheritance, JavaScript uses prototypes as blueprints for creating objects. Example:
+```javascript
+// Parent object
+const animal = {
+  eat() {
+    console.log('Eating...');
+  }
+};
+
+// Child object inheriting from animal
+const dog = Object.create(animal);
+dog.bark = function() {
+  console.log('Barking...');
+};
+
+dog.eat(); // 'Eating...' (inherited)
+dog.bark(); // 'Barking...' (own property)
+
+console.log(dog.__proto__ === animal); // true
+```
+
+Modern approach with ES6 classes (syntactic sugar over prototypes):
+```javascript
+class Animal {
+  eat() { console.log('Eating...'); }
+}
+
+class Dog extends Animal {
+  bark() { console.log('Barking...'); }
+}
+
+const dog = new Dog();
+dog.eat(); // 'Eating...'
+dog.bark(); // 'Barking...'
+```
+
+Prototypal inheritance is fundamental to JavaScript's object model. It's more flexible than classical inheritance, allowing dynamic changes to prototypes that affect all inheriting objects. Understanding prototypal inheritance is essential for mastering JavaScript's OOP paradigm.
+
+---
+
+### 34. What is the Prototype Chain?
+- **Question:** Explain the prototype chain in JavaScript.
+- **Workflow:**
+  1. JavaScript looks for property in the object itself
+  2. If not found, looks in object's prototype
+  3. If not found, looks in prototype's prototype
+  4. Continues up the chain until property is found or chain ends at null
+  5. If reaches null without finding property, returns undefined
+- **Real-Life Example:** Like searching for a document - first check your desk, then your manager's desk, then the archive, until found or all locations exhausted.
+- **Hinglish Explanation:** Prototype chain wo series hai links ki objects ke beech mein, jo properties ko access karte waqt search karte hain. Agar property object mein nahi mili to prototype mein dekhte hain, fir uske prototype mein, aur ye tab tak chalta hai jab tak null nahi mil jata.
+- **English Translation:** The prototype chain is a series of links between objects that are searched when accessing properties. If a property isn't found in the object, it looks in the prototype, then the prototype's prototype, continuing until null is reached.
+- **Interview Answer:** The prototype chain is the mechanism JavaScript uses to implement inheritance and property lookup. When accessing a property on an object, JavaScript searches up the chain of prototypes until it finds the property or reaches the end (null). Example:
+```javascript
+const obj = { a: 1 };
+
+// Prototype chain: obj -> Object.prototype -> null
+
+console.log(obj.toString()); // Inherited from Object.prototype
+console.log(obj.a); // 1 (own property)
+console.log(obj.b); // undefined (not in chain)
+
+// Checking the chain
+console.log(obj.__proto__ === Object.prototype); // true
+console.log(Object.prototype.__proto__); // null (end of chain)
+```
+
+More complex example:
+```javascript
+function Animal(name) {
+  this.name = name;
+}
+Animal.prototype.eat = function() {
+  console.log('Eating');
+};
+
+function Dog(name) {
+  Animal.call(this, name);
+}
+Dog.prototype = Object.create(Animal.prototype);
+Dog.prototype.bark = function() {
+  console.log('Barking');
+};
+
+const dog = new Dog('Rex');
+
+// Prototype chain: dog -> Dog.prototype -> Animal.prototype -> Object.prototype -> null
+
+dog.bark(); // 'Barking' (Dog.prototype)
+dog.eat(); // 'Eating' (Animal.prototype)
+dog.toString(); // '[object Object]' (Object.prototype)
+```
+
+Understanding the prototype chain is essential for debugging property access issues, implementing inheritance, and optimizing performance by knowing where properties are located in the chain.
+
+---
+
+### 35. What is __proto__?
+- **Question:** What does `__proto__` mean in JavaScript?
+- **Workflow:**
+  1. `__proto__` is a property that exists on every object
+  2. It points to the object's prototype
+  3. Used to access or modify an object's prototype
+  4. Part of legacy API, now standardized as accessor property
+- **Real-Life Example:** Like a reference card in a library book that points to the series it belongs to.
+- **Hinglish Explanation:** __proto__ ek internal property hai jo object ke prototype ko point karta hai. Ye ek reference hai jisse hum object ki prototype chain ko access kar sakte hain.
+- **English Translation:** __proto__ is an internal property that points to an object's prototype. It's a reference that allows us to access the object's prototype chain.
+- **Interview Answer:** `__proto__` is an accessor property that provides access to an object's internal `[[Prototype]]` property. It's a getter/setter that points to the prototype from which the object inherits. Example:
+```javascript
+const obj = {};
+console.log(obj.__proto__ === Object.prototype); // true
+
+const arr = [];
+console.log(arr.__proto__ === Array.prototype); // true
+console.log(arr.__proto__.__proto__ === Object.prototype); // true
+```
+
+Setting prototype using `__proto__`:
+```javascript
+const animal = {
+  eat() { console.log('Eating'); }
+};
+
+const dog = {
+  bark() { console.log('Barking'); }
+};
+
+dog.__proto__ = animal;
+dog.eat(); // 'Eating' (inherited)
+```
+
+**Important notes:**
+- `__proto__` is legacy syntax but widely supported
+- Modern alternatives: `Object.getPrototypeOf()` (get) and `Object.setPrototypeOf()` (set)
+- `Object.create()` is preferred for creating objects with specific prototypes
+- Direct manipulation of `__proto__` can impact performance
+
+```javascript
+// Modern recommended approach
+const proto = Object.getPrototypeOf(obj);
+Object.setPrototypeOf(obj, newProto);
+const newObj = Object.create(proto);
+```
+
+While `__proto__` is useful for understanding prototypes, production code should use the standard `Object` methods for better performance and compatibility.
+
+---
+
+### 36. Classical vs Prototypal Inheritance?
+- **Question:** What is the difference between classical and prototypal inheritance?
+- **Workflow:**
+  - **Classical**: Define classes → instantiate objects → objects inherit from class blueprints → rigid structure
+  - **Prototypal**: Create objects → objects inherit from other objects → flexible and dynamic
+- **Real-Life Example:** 
+  - Classical: Building houses from blueprint (class) - all houses follow same plan
+  - Prototypal: Learning from a mentor (object) - direct knowledge transfer
+- **Hinglish Explanation:** Classical inheritance classes ka use karta hai objects banane ke liye, jabki prototypal inheritance prototypes ka use karta hai. Classical rigid hota hai aur prototypal flexible.
+- **English Translation:** Classical inheritance uses classes to create objects, while prototypal inheritance uses prototypes. Classical is rigid and prototypal is flexible.
+- **Interview Answer:** **Classical Inheritance** (Java, C++):
+- Based on classes as blueprints
+- Objects are instances of classes
+- Inheritance through class hierarchies
+- Static and rigid structure
+- Uses keywords like `class`, `extends`, `new`
+
+**Prototypal Inheritance** (JavaScript):
+- Based on objects inheriting from other objects
+- No true classes (ES6 classes are syntactic sugar)
+- Inheritance through prototype chain
+- Dynamic and flexible
+- Objects can change prototypes at runtime
+
+JavaScript example showing both paradigms:
+```javascript
+// Prototypal style (native JavaScript)
+const animal = {
+  eat() { console.log('Eating'); }
+};
+
+const dog = Object.create(animal);
+dog.bark = function() { console.log('Barking'); };
+
+// Classical style (ES6 syntactic sugar)
+class Animal {
+  eat() { console.log('Eating'); }
+}
+
+class Dog extends Animal {
+  bark() { console.log('Barking'); }
+}
+const dog = new Dog();
+```
+
+**Key differences:**
+1. **Flexibility**: Prototypal allows runtime prototype changes; classical doesn't
+2. **Object creation**: Prototypal creates objects from objects; classical from classes
+3. **Memory**: Prototypal shares methods via prototype; classical copies to instances (depending on language)
+4. **Complexity**: Prototypal is simpler conceptually; classical has more syntax
+
+JavaScript uses prototypal inheritance natively, making it more flexible and dynamic than classical inheritance systems. Understanding this distinction is crucial for mastering JavaScript's object model.
+
+---
+
+### 37. What is Object Destructuring?
+- **Question:** Describe object destructuring in JavaScript.
+- **Workflow:**
+  1. Identify object with properties to extract
+  2. Use curly braces syntax `{}`
+  3. Specify property names to extract
+  4. Optional: provide default values
+  5. Optional: rename variables
+  6. Variables are created with extracted values
+- **Real-Life Example:** Unpacking a gift box and taking out only the items you need.
+- **Hinglish Explanation:** Object destructuring se aap objects se values ko alag variables mein transfer kar sakte hain ek concise way mein. Ye code ko clean aur readable banata hai.
+- **English Translation:** Object destructuring allows extracting values from objects into distinct variables in a concise way. It makes code clean and readable.
+- **Interview Answer:** Object destructuring is an ES6 feature that provides a convenient syntax for extracting multiple properties from objects into distinct variables. It simplifies data extraction and improves code readability. Examples:
+
+**Basic destructuring:**
+```javascript
+const person = { name: 'John', age: 30, city: 'NYC' };
+const { name, age } = person;
+console.log(name); // 'John'
+console.log(age); // 30
+```
+
+**Renaming variables:**
+```javascript
+const { name: fullName, age: years } = person;
+console.log(fullName); // 'John'
+```
+
+**Default values:**
+```javascript
+const { name, country = 'USA' } = person;
+console.log(country); // 'USA' (default)
+```
+
+**Nested destructuring:**
+```javascript
+const user = {
+  name: 'John',
+  address: { city: 'NYC', zip: 10001 }
+};
+const { address: { city, zip } } = user;
+console.log(city); // 'NYC'
+```
+
+**Function parameters:**
+```javascript
+function greet({ name, age }) {
+  console.log(`Hi ${name}, you are ${age}`);
+}
+greet(person); // Hi John, you are 30
+```
+
+**Rest operator:**
+```javascript
+const { name, ...rest } = person;
+console.log(rest); // { age: 30, city: 'NYC' }
+```
+
+Benefits: Reduces boilerplate code, makes function signatures clearer, enables easy default values, and improves code maintainability.
+
+---
+
+### 38. What is Asynchronous JavaScript?
+- **Question:** Explain asynchronous JavaScript.
+- **Workflow:**
+  1. Synchronous code executes on call stack
+  2. Async operation is initiated (setTimeout, fetch, etc.)
+  3. Async task is handed to Web APIs
+  4. Main thread continues executing without waiting
+  5. When async task completes, callback moves to task queue
+  6. Event loop pushes callback to call stack when stack is empty
+- **Real-Life Example:** Ordering food at a restaurant - you don't wait at the counter until food is ready; you sit down and get called when it's done.
+- **Hinglish Explanation:** Asynchronous JavaScript non-blocking execution ki madad se ek saath kai tasks anjaam dene ki suvidha deta hai. Matlab ek task ke complete hone ka wait nahi karna padta, baaki code chalta rehta hai.
+- **English Translation:** Asynchronous JavaScript allows non-blocking execution, enabling multiple tasks to run simultaneously. You don't have to wait for one task to complete; other code continues executing.
+- **Interview Answer:** Asynchronous JavaScript enables non-blocking code execution, allowing time-consuming operations to run in the background while the main thread continues executing other code. This prevents the UI from freezing and improves application responsiveness. JavaScript achieves asynchronicity through:
+
+**1. Callbacks:**
+```javascript
+setTimeout(() => {
+  console.log('Async operation');
+}, 1000);
+console.log('Synchronous operation');
+// Output: Synchronous operation, Async operation
+```
+
+**2. Promises:**
+```javascript
+fetch('https://api.example.com/data')
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error(error));
+```
+
+**3. Async/Await:**
+```javascript
+async function fetchData() {
+  try {
+    const response = await fetch('https://api.example.com/data');
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+```
+
+**Key mechanisms:**
+- **Call Stack**: Executes synchronous code
+- **Web APIs**: Handles async operations (timers, HTTP requests)
+- **Task Queues**: Macrotask (setTimeout) and Microtask (Promises) queues
+- **Event Loop**: Coordinates execution between stack and queues
+
+Asynchronous programming is fundamental for I/O operations, network requests, timers, and any operation that would otherwise block the main thread. Understanding async patterns is essential for building performant, responsive JavaScript applications.
+
+---
+
+### 39. What is the Event Loop?
+- **Question:** Describe the event loop in JavaScript.
+- **Workflow:**
+  1. Execute all synchronous code on call stack
+  2. Check if call stack is empty
+  3. If empty, check microtask queue
+  4. Execute all microtasks (Promises, queueMicrotask)
+  5. Check macrotask queue
+  6. Execute one macrotask (setTimeout, setInterval)
+  7. Repeat from step 2
+- **Real-Life Example:** Like a receptionist managing tasks - handles urgent notes (microtasks) before scheduled appointments (macrotasks).
+- **Hinglish Explanation:** Event loop ek mechanism hai jo asynchronous callbacks ko handle karta hai. Ye continuously check karta hai ki call stack empty hai ya nahi aur queues se tasks ko execute karta hai proper order mein.
+- **English Translation:** The event loop is a mechanism that manages asynchronous callbacks. It continuously checks if the call stack is empty and executes tasks from queues in proper order.
+- **Interview Answer:** The event loop is the fundamental mechanism that enables JavaScript's concurrency model despite being single-threaded. It continuously monitors the call stack and task queues, coordinating the execution of asynchronous code. 
+
+**Architecture components:**
+```
+┌───────────────────────────┐
+│     Call Stack            │
+└───────────────────────────┘
+┌───────────────────────────┐
+│     Web APIs              │
+│  (setTimeout, fetch, DOM) │
+└───────────────────────────┘
+┌───────────────────────────┐
+│   Microtask Queue         │
+│   (Promises, MutationObs) │
+└───────────────────────────┘
+┌───────────────────────────┐
+│   Macrotask Queue         │
+│ (setTimeout, setInterval) │
+└───────────────────────────┘
+```
+
+**Execution order example:**
+```javascript
+console.log('1');
+
+setTimeout(() => console.log('2'), 0);
+
+Promise.resolve().then(() => console.log('3'));
+
+console.log('4');
+
+// Output: 1, 4, 3, 2
+// Explanation:
+// - 1, 4 are synchronous (call stack)
+// - 3 is microtask (Promise - higher priority)
+// - 2 is macrotask (setTimeout - lower priority)
+```
+
+**Event loop cycle:**
+1. Execute all synchronous code
+2. Process all microtasks until queue is empty
+3. Execute one macrotask
+4. Process all microtasks again
+5. Render updates (in browser)
+6. Repeat
+
+**Priority**: Synchronous code > Microtasks > Macrotasks
+
+The event loop is crucial for understanding timing issues, promise resolution order, and building efficient asynchronous applications. It's the reason JavaScript can handle concurrent operations without multi-threading.
+
+---
+
+### 40. What is the difference between Microtask and Macrotask?
+- **Question:** Explain the difference between microtasks and macrotasks.
+- **Workflow:**
+  - **Microtasks**: Added to microtask queue → all microtasks processed before rendering → higher priority
+  - **Macrotasks**: Added to macrotask queue → one macrotask per event loop iteration → lower priority
+- **Real-Life Example:** 
+  - Microtasks: Urgent emails that must be answered before meetings
+  - Macrotasks: Scheduled meetings that happen one at a time
+- **Hinglish Explanation:** Microtasks event loop mein macrotasks se pehle process kiye jaate hain. Promises microtasks hain aur setTimeout macrotasks hai. Microtasks ka priority high hota hai.
+- **English Translation:** Microtasks are processed before macrotasks in the event loop. Promises are microtasks and setTimeout are macrotasks. Microtasks have higher priority.
+- **Interview Answer:** Microtasks and macrotasks are two types of asynchronous tasks with different priorities in the event loop:
+
+**Microtasks:**
+- **Sources**: Promises (.then, .catch, .finally), queueMicrotask(), MutationObserver
+- **Priority**: Higher - all microtasks execute before any macrotask
+- **Execution**: All queued microtasks run in a single event loop iteration
+- **Use case**: Promise resolution, async state updates
+
+**Macrotasks:**
+- **Sources**: setTimeout, setInterval, setImmediate, I/O operations, UI rendering
+- **Priority**: Lower - one macrotask per event loop iteration
+- **Execution**: One macrotask executes, then all microtasks, then next macrotask
+- **Use case**: Scheduled callbacks, timers
+
+**Demonstration:**
+```javascript
+console.log('Script start');
+
+setTimeout(() => console.log('setTimeout'), 0);
+
+Promise.resolve()
+  .then(() => console.log('Promise 1'))
+  .then(() => console.log('Promise 2'));
+
+console.log('Script end');
+
+// Output:
+// Script start
+// Script end
+// Promise 1
+// Promise 2
+// setTimeout
+
+// Explanation:
+// 1. Synchronous code: Script start, Script end
+// 2. Microtasks: Promise 1, Promise 2
+// 3. Macrotask: setTimeout
+```
+
+**Event loop cycle:**
+```javascript
+// Cycle 1
+console.log('1'); // Synchronous
+
+setTimeout(() => console.log('2'), 0); // Macrotask queued
+
+Promise.resolve().then(() => {
+  console.log('3'); // Microtask
+  Promise.resolve().then(() => console.log('4')); // Microtask
+});
+
+// Output: 1, 3, 4, 2
+// All microtasks (3, 4) execute before macrotask (2)
+```
+
+**Key difference**: Microtasks can starve macrotasks if they keep queuing more microtasks, as all microtasks must complete before the next macrotask runs. Understanding this distinction is critical for predicting execution order and avoiding performance issues in asynchronous code.
+
+---
+
+### 41. What are Promises in JavaScript?
+- **Question:** Can you explain promises and their states?
+- **Workflow:**
+  1. Promise is created (pending state)
+  2. Async operation begins
+  3. Operation completes successfully → promise fulfilled
+  4. OR operation fails → promise rejected
+  5. .then() handles fulfilled state
+  6. .catch() handles rejected state
+  7. .finally() runs regardless of outcome
+- **Real-Life Example:** Ordering a product online - you get a promise (order confirmation) that will either be fulfilled (delivered) or rejected (out of stock).
+- **Hinglish Explanation:** Promise ek object hai jo asynchronous operation ki completion ya failure ko dikhata hai. Ye ek guarantee hai ki future mein result milega, chahe success ho ya failure.
+- **English Translation:** A promise is an object that represents the eventual completion or failure of an asynchronous operation. It's a guarantee that a result will be received in the future, whether success or failure.
+- **Interview Answer:** A Promise is an object representing the eventual completion or failure of an asynchronous operation. It's a more elegant alternative to callbacks, providing better error handling and avoiding callback hell. 
+
+**Promise states:**
+1. **Pending**: Initial state, neither fulfilled nor rejected
+2. **Fulfilled**: Operation completed successfully
+3. **Rejected**: Operation failed
+
+**Basic usage:**
+```javascript
+const promise = new Promise((resolve, reject) => {
+  // Async operation
+  setTimeout(() => {
+    const success = true;
+    if (success) {
+      resolve('Operation successful');
+    } else {
+      reject('Operation failed');
+    }
+  }, 1000);
+});
+
+promise
+  .then(result => console.log(result))
+  .catch(error => console.error(error))
+  .finally(() => console.log('Operation complete'));
+```
+
+**Real-world example:**
+```javascript
+function fetchUser(userId) {
+  return new Promise((resolve, reject) => {
+    fetch(`https://api.example.com/users/${userId}`)
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        }
+        throw new Error('User not found');
+      })
+      .then(data => resolve(data))
+      .catch(error => reject(error));
+  });
+}
+
+fetchUser(123)
+  .then(user => console.log(user))
+  .catch(error => console.error(error));
+```
+
+**Advantages over callbacks:**
+- Cleaner syntax
+- Better error handling with .catch()
+- Chainable with .then()
+- Avoids callback hell
+- Built-in error propagation
+
+Promises are fundamental to modern JavaScript async programming and are the foundation for async/await syntax.
+
+---
+
+### 42. What are Promise States?
+- **Question:** Describe the states of a promise.
+- **Workflow:**
+  1. Promise created → enters **Pending** state
+  2. Async operation runs
+  3. If successful → transitions to **Fulfilled** state (settled)
+  4. If failed → transitions to **Rejected** state (settled)
+  5. State transition is irreversible (can only change once)
+- **Real-Life Example:** Package delivery status: "In Transit" (pending), "Delivered" (fulfilled), "Failed Delivery" (rejected).
+- **Hinglish Explanation:** Ek promise teen states mein ho sakta hai: pending (abhi complete nahi hua), fulfilled (successfully complete), ya rejected (error ke saath complete). Ek baar state change hone ke baad wo dubara change nahi hota.
+- **English Translation:** A promise can be in one of three states: pending (not yet complete), fulfilled (successfully completed), or rejected (completed with error). Once the state changes, it cannot change again.
+- **Interview Answer:** A Promise has three possible states, representing different phases of an asynchronous operation:
+
+**1. Pending** (Initial state):
+- Promise is created but not yet settled
+- Async operation is in progress
+- Can transition to either fulfilled or rejected
+```javascript
+const promise = new Promise((resolve, reject) => {
+  // Currently in pending state
+  console.log(promise); // Promise { <pending> }
+});
+```
+
+**2. Fulfilled** (Success state):
+- Async operation completed successfully
+- Promise has a resolved value
+- Triggers .then() handler
+```javascript
+const promise = Promise.resolve('Success');
+promise.then(value => console.log(value)); // 'Success'
+```
+
+**3. Rejected** (Failure state):
+- Async operation failed
+- Promise has a rejection reason (error)
+- Triggers .catch() handler
+```javascript
+const promise = Promise.reject(new Error('Failed'));
+promise.catch(error => console.error(error)); // Error: Failed
+```
+
+**State transition visualization:**
+```
+        Pending
+         /    \
+        /      \
+   Fulfilled  Rejected
+   (success)  (failure)
+```
+
+**Key characteristics:**
+- **Immutable**: Once settled (fulfilled/rejected), state cannot change
+- **One-time**: Promise settles only once
+- **Guaranteed**: All .then() handlers will execute even if promise already settled
+
+**Complete example:**
+```javascript
+const promise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    const random = Math.random();
+    if (random > 0.5) {
+      resolve(`Success: ${random}`);
+    } else {
+      reject(new Error(`Failed: ${random}`));
+    }
+  }, 1000);
+});
+
+// Initially pending
+console.log(promise); // Promise { <pending> }
+
+// After 1 second, either fulfilled or rejected
+promise
+  .then(result => console.log('Fulfilled:', result))
+  .catch(error => console.log('Rejected:', error.message))
+  .finally(() => console.log('Settled (no longer pending)'));
+```
+Understanding promise states is essential for proper error handling and flow control in asynchronous JavaScript applications.
+
+---
+
+### 43. What is Promise Chaining?
+- **Question:** Explain promise chaining in JavaScript.
+- **Workflow:**
+  1. First promise is created and resolved
+  2. .then() handler processes result
+  3. .then() returns a new promise
+  4. Next .then() waits for previous promise
+  5. Chain continues with each .then() returning a promise
+  6. .catch() at end handles any errors in chain
+- **Real-Life Example:** Assembly line in factory - each station completes its task and passes product to next station.
+- **Hinglish Explanation:** Promise chaining se aap sequentially multiple promises ko connect kar sakte hain. Har .then() ek nayi promise return karta hai jo agle .then() ko input deti hai.
+- **English Translation:** Promise chaining allows connecting multiple promises sequentially. Each .then() returns a new promise that provides input to the next .then().
+- **Interview Answer:** Promise chaining is the process of executing multiple asynchronous operations in sequence, where each operation starts when the previous one completes. Each .then() returns a new promise, enabling a chain of operations.
+
+**Basic chaining:**
+```javascript
+fetch('https://api.example.com/user/1')
+  .then(response => response.json())
+  .then(user => {
+    console.log(user);
+    return fetch(`https://api.example.com/posts/${user.id}`);
+  })
+  .then(response => response.json())
+  .then(posts => console.log(posts))
+  .catch(error => console.error('Error:', error));
+```
+
+**Returning values:**
+```javascript
+Promise.resolve(5)
+  .then(num => {
+    console.log(num); // 5
+    return num * 2;
+  })
+  .then(num => {
+    console.log(num); // 10
+    return num + 3;
+  })
+  .then(num => {
+    console.log(num); // 13
+  });
+```
+
+**Returning promises:**
+```javascript
+function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+console.log('Start');
+delay(1000)
+  .then(() => {
+    console.log('After 1 second');
+    return delay(1000);
+  })
+  .then(() => {
+    console.log('After 2 seconds');
+    return delay(1000);
+  })
+  .then(() => {
+    console.log('After 3 seconds');
+  });
+```
+
+**Error handling in chains:**
+```javascript
+Promise.resolve(5)
+  .then(num => {
+    if (num > 3) throw new Error('Number too large');
+    return num * 2;
+  })
+  .then(num => console.log(num)) // Skipped due to error
+  .catch(error => console.error(error)) // Catches error
+  .then(() => console.log('Continues after catch'));
+```
+
+**Advantages:**
+- Avoids callback hell
+- Better error handling
+- More readable sequential async operations
+- Single .catch() handles all errors in chain
+
+**Best practices:**
+- Always return promises from .then()
+- Add .catch() at the end for error handling
+- Use .finally() for cleanup operations
+- Avoid nesting promises (defeats the purpose)
+
+Promise chaining is essential for managing complex asynchronous workflows in a maintainable way.
+
+---
+
+### 44. What is async/await?
+- **Question:** Can you explain async/await syntax?
+- **Workflow:**
+  1. Function is declared with `async` keyword
+  2. Function automatically returns a promise
+  3. Inside function, `await` pauses execution
+  4. Awaited promise resolves
+  5. Execution resumes with resolved value
+  6. Errors are caught with try/catch
+- **Real-Life Example:** Waiting in line at a coffee shop - you wait (await) for your order before proceeding to next task.
+- **Hinglish Explanation:** Async/await syntax se aap asynchronous code ko synchronous tarike se likh sakte hain. Ye promises ka cleaner syntax hai jo code ko readable banata hai.
+- **English Translation:** Async/await syntax allows writing asynchronous code in a synchronous manner. It's a cleaner syntax for promises that makes code more readable.
+- **Interview Answer:** Async/await is syntactic sugar built on top of Promises, introduced in ES2017. It provides a cleaner, more intuitive way to write asynchronous code that looks and behaves like synchronous code.
+
+**Basic syntax:**
+```javascript
+// async function always returns a promise
+async function fetchData() {
+  return 'Hello'; // Automatically wrapped in Promise.resolve()
+}
+
+fetchData().then(data => console.log(data)); // 'Hello'
+```
+
+**Using await:**
+```javascript
+async function fetchUser() {
+  try {
+    // await pauses execution until promise resolves
+    const response = await fetch('https://api.example.com/user/1');
+    const user = await response.json();
+    console.log(user);
+    return user;
+  } catch (error) {
+    console.error('Error:', error);
+    throw error;
+  }
+}
+```
+
+**Comparison with Promises:**
+```javascript
+// Promise chaining
+function getUserPosts() {
+  return fetch('https://api.example.com/user/1')
+    .then(response => response.json())
+    .then(user => fetch(`https://api.example.com/posts/${user.id}`))
+    .then(response => response.json())
+    .catch(error => console.error(error));
+}
+
+// Async/await (cleaner)
+async function getUserPosts() {
+  try {
+    const userResponse = await fetch('https://api.example.com/user/1');
+    const user = await userResponse.json();
+    const postsResponse = await fetch(`https://api.example.com/posts/${user.id}`);
+    const posts = await postsResponse.json();
+    return posts;
+  } catch (error) {
+    console.error(error);
+  }
+}
+```
+
+**Multiple concurrent requests:**
+```javascript
+async function fetchMultiple() {
+  // Sequential (slow)
+  const user = await fetch('/user');
+  const posts = await fetch('/posts');
+  
+  // Concurrent (fast)
+  const [userRes, postsRes] = await Promise.all([
+    fetch('/user'),
+    fetch('/posts')
+  ]);
+  
+  const user = await userRes.json();
+  const posts = await postsRes.json();
+}
+```
+
+**Error handling:**
+```javascript
+async function handleErrors() {
+  try {
+    const response = await fetch('/api/data');
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Fetch failed:', error);
+    throw error; // Re-throw if needed
+  } finally {
+    console.log('Cleanup operations');
+  }
+}
+```
+
+**Key points:**
+- `async` keyword makes function return a promise
+- `await` can only be used inside async functions
+- `await` pauses execution until promise settles
+- Error handling uses try/catch instead of .catch()
+- Multiple awaits run sequentially; use Promise.all() for concurrency
+- Top-level await is supported in modules (ES2022)
+
+**Benefits:**
+- More readable than promise chains
+- Easier error handling with try/catch
+- Debugging is simpler (proper stack traces)
+- Looks synchronous, avoiding callback hell
+
+Async/await is the modern standard for handling asynchronous operations in JavaScript and is essential for writing clean, maintainable async code.
+
+---
